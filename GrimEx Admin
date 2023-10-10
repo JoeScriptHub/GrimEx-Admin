@@ -53,7 +53,7 @@
  }
  
  -- [[ Version ]] -- 
- currentversion = 1.13
+ currentversion = 1.14
  
  --[[ VARIABLES ]]--
  PlaceId, JobId = game.PlaceId, game.JobId
@@ -2037,7 +2037,7 @@ print(Time)
  end)
  
  hiddenfling = false
- cmd.add({"walkfling", "wfling"}, {"walkfling (wfling) [THANKS TO X]", "probably the best fling lol"}, function()
+ cmd.add({"walkfling", "wfling"}, {"walkfling (wfling) [THANKS TO GrimEx]", "probably the best fling lol"}, function()
 	 Notify({
 		 Description = "Walkfling enabled";
 		 Title = "GrimEx Admin";
@@ -5879,9 +5879,9 @@ end
 	 local Player = getPlr(...)
 	 if Player ~= nil and not Admin[Player.UserId] then
 		 Admin[Player.UserId] = {Player = Player}
-		 ChatMessage("/w "..Player.Name.." [GrimEx Admin] You've got admin. Prefix: ';'")
+		 ChatMessage("/w "..Player.Name.." [Gr1mEx Admin] You've got admin. Prefix: ';'")
 		 wait(0.2)
-		 ChatMessage("/w "..Player.Name.." [GrimEx Admin Commands] glue, unglue, fling, fling2, spinfling, unspinfling, fcd, fti, fpp, fireremotes, holdhat")
+		 ChatMessage("/w "..Player.Name.." [Gr1mEx Admin Commands] glue, unglue, fling, fling2, spinfling, unspinfling, fcd, fti, fpp, fireremotes, holdhat")
 		 ChatMessage("/w "..Player.Name.." reset, commitoof, seizure, unseizure, toolorbit, lay, fall, toolspin, hatspin, sit, joke, kanye")
 		 Notify({
 			 Description = "" .. Player.Name .. " has now been whitelisted to use commands";
@@ -11951,7 +11951,7 @@ until glueloop == false
 				 end)
 				 
 								 cmd.add({"nameless"}, {"nameless", "Makes your hats visible but not your name or your body"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/NamelessAdmin"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/nameless"))()
  end)
  
  
@@ -12198,7 +12198,7 @@ until glueloop == false
  end)
  
  cmd.add({"notepad"}, {"notepad", "notepad for making scripts / etc"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/Enum.FontAdmin/main/Notepad"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Notepad"))()
  end)
  
  cmd.add({"rc7"}, {"rc7", "RC7 Internal UI"}, function()
