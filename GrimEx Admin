@@ -4387,7 +4387,7 @@ print(Time)
  
 		 cmd.add({"harked", "comet"}, {"harked (comet)", "Executes Comet which is like harked"}, function()
 			 Notify({
- Description = "Join the discord to see supported games! Use the discord command to get the invite";
+ Description = "not working in every game";
  Title = "GrimEx Admin";
  Duration = 7;
  
@@ -9671,7 +9671,7 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
 	 wait();
 	 
 	 Notify({
-	 Description = "discord.gg/mW442YxE4j";
+	 Description = "nothing here sorry";
 	 Title = "GrimEx Admin";
 	 Duration = 15;
 	 
@@ -9691,7 +9691,7 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
 			 })
 		 })
 	 end
-	 setclipboard("discord.gg/mW442YxE4j")
+	 setclipboard("GrimEx Is The Best")
 	 end)
  
  cmd.add({"exit"}, {"exit", "Close down roblox"}, function()
@@ -15154,6 +15154,4 @@ end
 
  --[[
 	End of the source code.
-	Join the discord for updates or give command ideas, that could be added.
-	https://discord.gg/ACk4JyVJ6x
---]]
+ --]]
