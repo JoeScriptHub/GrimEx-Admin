@@ -19,6 +19,13 @@
  -- Notification library
  local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/notificationtest"))();
  local Notify = Notification.Notify;
+
+ Notify({
+		 Description = "Happy New Years!";
+		 Title = "GA";
+		 Duration = 5;
+		 
+});
  
  -- Custom file functions checker checker
  local CustomFunctionSupport = isfile and isfolder and writefile and readfile and listfiles
@@ -51,7 +58,10 @@
 		 
 	 },
  }
-  
+ 
+ -- [[ Version ]] -- 
+ currentversion = 
+ 
  --[[ VARIABLES ]]--
  PlaceId, JobId = game.PlaceId, game.JobId
  local Players = game:GetService("Players")
@@ -136,7 +146,7 @@
 	 end
 	 commandcount = commandcount + 1
  end
- 
+
  cmd.run = function(args)
 	 local caller, arguments = args[1], args; table.remove(args, 1);
 	 local success, msg = pcall(function()
@@ -2034,7 +2044,7 @@ print(Time)
  end)
  
  hiddenfling = false
- cmd.add({"walkfling", "wfling"}, {"walkfling (wfling) [THANKS TO GrimEx]", "probably the best fling lol"}, function()
+ cmd.add({"walkfling", "wfling"}, {"walkfling (wfling) [THANKS TO X]", "probably the best fling lol"}, function()
 	 Notify({
 		 Description = "Walkfling enabled";
 		 Title = "GrimEx Admin";
@@ -4384,7 +4394,7 @@ print(Time)
  
 		 cmd.add({"harked", "comet"}, {"harked (comet)", "Executes Comet which is like harked"}, function()
 			 Notify({
- Description = "not working in every game";
+ Description = "Join the discord to see supported games! Use the discord command to get the invite";
  Title = "GrimEx Admin";
  Duration = 7;
  
@@ -4754,11 +4764,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/m
  });
 				 end)
  
-				 cmd.add({"tptool"}, {"tpt", "Teleport where your mouse is"}, function()
+				 cmd.add({"clicktp"}, {"clicktp", "Teleport where your mouse is"}, function()
 					 mouse = game.Players.LocalPlayer:GetMouse()
  tool = Instance.new("Tool")
  tool.RequiresHandle = false
- tool.Name = "tp tool"
+ tool.Name = "Click TP"
  tool.Activated:connect(function()
  local pos = mouse.Hit+Vector3.new(0,2.5,0)
  pos = CFrame.new(pos.X,pos.Y,pos.Z)
@@ -4772,7 +4782,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/m
  
  local tool = Instance.new("Tool")
  tool.RequiresHandle = false
- tool.Name = "tween tp tool"
+ tool.Name = "Tween Click TP"
  local function onActivated()
 	 local mouse = Players.LocalPlayer:GetMouse()
 	 local pos = mouse.Hit + Vector3.new(0,2.5,0)
@@ -5876,9 +5886,9 @@ end
 	 local Player = getPlr(...)
 	 if Player ~= nil and not Admin[Player.UserId] then
 		 Admin[Player.UserId] = {Player = Player}
-		 ChatMessage("/w "..Player.Name.." [Gr1mEx Admin] You've got admin. Prefix: ';'")
+		 ChatMessage("/w "..Player.Name.." [GrimEx Admin] You've got admin. Prefix: ';'")
 		 wait(0.2)
-		 ChatMessage("/w "..Player.Name.." [Gr1mEx Admin Commands] glue, unglue, fling, fling2, spinfling, unspinfling, fcd, fti, fpp, fireremotes, holdhat")
+		 ChatMessage("/w "..Player.Name.." [GrimEx Admin Commands] glue, unglue, fling, fling2, spinfling, unspinfling, fcd, fti, fpp, fireremotes, holdhat")
 		 ChatMessage("/w "..Player.Name.." reset, commitoof, seizure, unseizure, toolorbit, lay, fall, toolspin, hatspin, sit, joke, kanye")
 		 Notify({
 			 Description = "" .. Player.Name .. " has now been whitelisted to use commands";
@@ -9206,7 +9216,7 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
  end)
  
  cmd.add({"pp", "penis"}, {"penis (pp)", "benis :flushed:"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/pp"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/pp"))()
  end)
  
  cmd.add({"stealaudio", "getaudio", "steal", "logaudio"}, {"stealaudio <player> (getaudio, logaudio, steal)", "Save all sounds a player is playing to a file  -Cyrus"}, function(p)
@@ -9663,6 +9673,33 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
  
  loadstring(game:HttpGet('https://github.com/DigitalityScripts/roblox-scripts/raw/main/hat%20resize'))()
  end)
+ 
+ cmd.add({"discord"}, {"discord", "discord server link"}, function()
+	 wait();
+	 
+	 Notify({
+	 Description = "discord.gg/mW442YxE4j";
+	 Title = "GrimEx Admin";
+	 Duration = 15;
+	 
+	 });
+	 if httprequest then
+		 httprequest({
+			 Url = 'http://127.0.0.1:6463/rpc?v=1',
+			 Method = 'POST',
+			 Headers = {
+				 ['Content-Type'] = 'application/json',
+				 Origin = 'https://discord.com'
+			 },
+			 Body = HttpService:JSONEncode({
+				 cmd = 'INVITE_BROWSER',
+				 nonce = HttpService:GenerateGUID(false),
+				 args = {code = 'ACk4JyVJ6x'}
+			 })
+		 })
+	 end
+	 setclipboard("discord.gg/mW442YxE4j")
+	 end)
  
  cmd.add({"exit"}, {"exit", "Close down roblox"}, function()
  game:Shutdown()
@@ -12168,7 +12205,7 @@ until glueloop == false
  end)
  
  cmd.add({"notepad"}, {"notepad", "notepad for making scripts / etc"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/Notepad"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Notepad"))()
  end)
  
  cmd.add({"rc7"}, {"rc7", "RC7 Internal UI"}, function()
@@ -15092,6 +15129,7 @@ end
  TextClickButton.Position = UDim2.new(0.418, 0,0, 0)
  TextClickButton.Size = UDim2.new(0, 2, 0, 33)
  TextClickButton.Font = Enum.Font.SourceSansBold
+ TextClickButton.Text = "GrimEx Admin " .. currentversion .. ""
  TextClickButton.TextColor3 = Color3.fromRGB(255, 255, 255)
  TextClickButton.TextSize = 20.000
  TextClickButton.TextWrapped = true
@@ -15123,4 +15161,6 @@ end
 
  --[[
 	End of the source code.
- --]]
+	Join the discord for updates or give command ideas, that could be added.
+	https://discord.gg/ACk4JyVJ6x
+--]]
