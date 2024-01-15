@@ -51,10 +51,7 @@
 		 
 	 },
  }
- 
- -- [[ Version ]] -- 
- currentversion = 1.14
- 
+  
  --[[ VARIABLES ]]--
  PlaceId, JobId = game.PlaceId, game.JobId
  local Players = game:GetService("Players")
@@ -4757,11 +4754,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/m
  });
 				 end)
  
-				 cmd.add({"clicktp"}, {"clicktp", "Teleport where your mouse is"}, function()
+				 cmd.add({"tptool"}, {"tpt", "Teleport where your mouse is"}, function()
 					 mouse = game.Players.LocalPlayer:GetMouse()
  tool = Instance.new("Tool")
  tool.RequiresHandle = false
- tool.Name = "Click TP"
+ tool.Name = "tp tool"
  tool.Activated:connect(function()
  local pos = mouse.Hit+Vector3.new(0,2.5,0)
  pos = CFrame.new(pos.X,pos.Y,pos.Z)
@@ -4775,7 +4772,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/m
  
  local tool = Instance.new("Tool")
  tool.RequiresHandle = false
- tool.Name = "Tween Click TP"
+ tool.Name = "tween tp tool"
  local function onActivated()
 	 local mouse = Players.LocalPlayer:GetMouse()
 	 local pos = mouse.Hit + Vector3.new(0,2.5,0)
@@ -9209,7 +9206,7 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
  end)
  
  cmd.add({"pp", "penis"}, {"penis (pp)", "benis :flushed:"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/pp"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/pp"))()
  end)
  
  cmd.add({"stealaudio", "getaudio", "steal", "logaudio"}, {"stealaudio <player> (getaudio, logaudio, steal)", "Save all sounds a player is playing to a file  -Cyrus"}, function(p)
@@ -9666,33 +9663,6 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
  
  loadstring(game:HttpGet('https://github.com/DigitalityScripts/roblox-scripts/raw/main/hat%20resize'))()
  end)
- 
- cmd.add({"discord"}, {"discord", "discord server link"}, function()
-	 wait();
-	 
-	 Notify({
-	 Description = "nothing here sorry";
-	 Title = "GrimEx Admin";
-	 Duration = 15;
-	 
-	 });
-	 if httprequest then
-		 httprequest({
-			 Url = 'http://127.0.0.1:6463/rpc?v=1',
-			 Method = 'POST',
-			 Headers = {
-				 ['Content-Type'] = 'application/json',
-				 Origin = 'https://discord.com'
-			 },
-			 Body = HttpService:JSONEncode({
-				 cmd = 'INVITE_BROWSER',
-				 nonce = HttpService:GenerateGUID(false),
-				 args = {code = 'ACk4JyVJ6x'}
-			 })
-		 })
-	 end
-	 setclipboard("GrimEx Is The Best")
-	 end)
  
  cmd.add({"exit"}, {"exit", "Close down roblox"}, function()
  game:Shutdown()
@@ -12198,7 +12168,7 @@ until glueloop == false
  end)
  
  cmd.add({"notepad"}, {"notepad", "notepad for making scripts / etc"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Notepad"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/Notepad"))()
  end)
  
  cmd.add({"rc7"}, {"rc7", "RC7 Internal UI"}, function()
@@ -15122,7 +15092,6 @@ end
  TextClickButton.Position = UDim2.new(0.418, 0,0, 0)
  TextClickButton.Size = UDim2.new(0, 2, 0, 33)
  TextClickButton.Font = Enum.Font.SourceSansBold
- TextClickButton.Text = "GrimEx Admin " .. currentversion .. ""
  TextClickButton.TextColor3 = Color3.fromRGB(255, 255, 255)
  TextClickButton.TextSize = 20.000
  TextClickButton.TextWrapped = true
