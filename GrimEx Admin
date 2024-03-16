@@ -15,15 +15,6 @@
 	 Loaded.Wait(Loaded);
 	 wait(1.5)
  end
- 
- -- Notification library
- local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/notificationtest"))();
- local Notify = Notification.Notify;
-
- Notify({
-		 Description = "Happy New Years!";
-		 Title = "GA";
-		 Duration = 5;
 		 
 });
  
