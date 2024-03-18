@@ -15,7 +15,16 @@
 	 Loaded.Wait(Loaded);
 	 wait(1.5)
  end
-		 
+
+ -- Notification library
+ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/notificationtest"))();
+ local Notify = Notification.Notify;
+
+ Notify({
+		 Description = "Death Is Inevitable";
+		 Title = "NA";
+		 Duration = 5;
+       
 });
  
  -- Custom file functions checker checker
