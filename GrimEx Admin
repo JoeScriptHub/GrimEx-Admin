@@ -22,7 +22,7 @@
 
  Notify({
 		 Description = "Death Is Inevitable";
-		 Title = "NA";
+		 Title = "DII";
 		 Duration = 5;
        
 });
