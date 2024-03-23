@@ -5451,9 +5451,9 @@ local function YDYMLAX_fake_script()
 	end
 end
 coroutine.wrap(YDYMLAX_fake_script)()
-end)
- 
-cmd.cmd.add({"unshiftlock", "unsl"}, {"unshiftlock (unsl)", "Disables shiftlock"}, function()
+end) 
+
+cmd.add({"unshiftlock", "unsl"}, {"unshiftlock (unsl)", "Disables shiftlock"}, function()
 DisableShiftlock()
 end)
 
