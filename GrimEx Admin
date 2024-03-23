@@ -4812,8 +4812,68 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/m
 					 end)
  
  cmd.add({"dex"}, {"dex", "Using this you can see the parts / guis / scripts etc with this. A really good and helpful script."}, function()
-	-- thanks to moon for this dex / best dex out there
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+	
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/dex%20by%20moon"))()
+ end)
+
+ cmd.add({"SynapseDex", "sdex"}, {"SynapseDex (sdex)", "Loads SynapseX's dex explorer."}, function()
+	 local rng = Random.new()
+
+local charset = {}
+for i = 48,  57 do table.insert(charset, string.char(i)) end
+for i = 65,  90 do table.insert(charset, string.char(i)) end
+for i = 97, 122 do table.insert(charset, string.char(i)) end
+local function RandomCharacters(length)
+  if length > 0 then
+    return RandomCharacters(length - 1) .. charset[rng:NextInteger(1, #charset)]
+  else
+    return ""
+  end
+end
+
+local Dex = game:GetObjects("rbxassetid://9553291002")[1]
+Dex.Name = RandomCharacters(rng:NextInteger(5, 20))
+Dex.Parent = game:GetService("CoreGui")
+
+local function Load(Obj, Url)
+local function GiveOwnGlobals(Func, Script)
+    local Fenv = {}
+    local RealFenv = {script = Script}
+    local FenvMt = {}
+    FenvMt.__index = function(a,b)
+        if RealFenv[b] == nil then
+            return getfenv()[b]
+        else
+            return RealFenv[b]
+        end
+    end
+    FenvMt.__newindex = function(a, b, c)
+        if RealFenv[b] == nil then
+            getfenv()[b] = c
+        else
+            RealFenv[b] = c
+        end
+    end
+    setmetatable(Fenv, FenvMt)
+    setfenv(Func, Fenv)
+    return Func
+end
+
+local function LoadScripts(Script)
+    if Script.ClassName == "Script" or Script.ClassName == "LocalScript" then
+        spawn(function()
+            GiveOwnGlobals(loadstring(Script.Source, "=" .. Script:GetFullName()), Script)()
+        end)
+    end
+    for i,v in pairs(Script:GetChildren()) do
+        LoadScripts(v)
+    end
+end
+
+LoadScripts(Obj)
+end
+
+Load(Dex)
  end)
 		 
 			 cmd.add({"antikill"}, {"antikill", "Makes exploiters not be able to kill you"}, function()
@@ -5332,125 +5392,7 @@ EnableShiftlock()
 end)
 
 cmd.add({"mobileshiftlock", "msl"}, {"mobileshiftlock (msl)", "Enables shiftlock for mobie"}, function()
-local shiftlockk = Instance.new("ScreenGui")
-local LockButton = Instance.new("ImageButton")
-local btnIcon = Instance.new("ImageLabel")
-local susDrag = Instance.new("Frame")
-
-shiftlockk.Name = "shiftlockk"
-shiftlockk.Parent = game.CoreGui
-shiftlockk.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-shiftlockk.ResetOnSpawn = false
-
-LockButton.Name = "LockButton"
-LockButton.Parent = shiftlockk
-LockButton.AnchorPoint = Vector2.new(0.5, 0.5)
-LockButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LockButton.BackgroundTransparency = 1.000
-LockButton.BorderColor3 = Color3.fromRGB(27, 42, 53)
-LockButton.Position = UDim2.new(0.785148501, 0, 0.865914762, 0)
-LockButton.Size = UDim2.new(0, 60, 0, 60)
-LockButton.ZIndex = 3
-LockButton.Image = "rbxassetid://530406505"
-LockButton.ImageColor3 = Color3.fromRGB(0, 133, 199)
-LockButton.ImageRectOffset = Vector2.new(2, 2)
-LockButton.ImageRectSize = Vector2.new(98, 98)
-LockButton.ImageTransparency = 0.400
-LockButton.ScaleType = Enum.ScaleType.Fit
-
-btnIcon.Name = "btnIcon"
-btnIcon.Parent = LockButton
-btnIcon.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-btnIcon.BackgroundTransparency = 1.000
-btnIcon.Position = UDim2.new(0.100000001, 0, 0.100000001, 0)
-btnIcon.Size = UDim2.new(0.800000012, 0, 0.800000012, 0)
-btnIcon.ZIndex = 3
-btnIcon.Image = "rbxasset://textures/ui/mouseLock_off.png"
-btnIcon.ImageColor3 = Color3.fromRGB(0, 0, 0)
-btnIcon.ScaleType = Enum.ScaleType.Fit
-btnIcon.SliceCenter = Rect.new(-160, 0, 100, 0)
-
-susDrag.Name = "susDrag"
-susDrag.Parent = LockButton
-susDrag.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-susDrag.BorderColor3 = Color3.fromRGB(0, 0, 0)
-susDrag.BorderSizePixel = 0
-susDrag.Position = UDim2.new(0.899999976, 0, -0.233333334, 0)
-susDrag.Size = UDim2.new(0, 20, 0, 20)
-
-local function YDYMLAX_fake_script()
-	local script = Instance.new('LocalScript', LockButton)
-
-	local Input = game:GetService("UserInputService")
-	local V = false
-
-	local main = script.Parent
-	local susDragFrame = main.susDrag
-	local dragging = false
-	local offset
-
-	local function onInputBegan(input, gameProcessedEvent)
-		if not gameProcessedEvent then
-			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-				dragging = true
-				offset = main.Position - UDim2.new(0, input.Position.X, 0, input.Position.Y)
-			end
-		end
-	end
-
-	local function onInputMoved(input)
-		if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-			main.Position = UDim2.new(0, input.Position.X, 0, input.Position.Y) + offset
-		end
-	end
-
-	local function onInputEnded(input)
-		if dragging and (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
-			dragging = false
-		end
-	end
-
-	susDragFrame.InputBegan:Connect(onInputBegan)
-	susDragFrame.InputChanged:Connect(onInputMoved)
-	susDragFrame.InputEnded:Connect(onInputEnded)
-
-	main.MouseButton1Click:Connect(function()
-		V = not V
-		main.btnIcon.ImageColor3 = V and Color3.fromRGB(0, 170, 255) or Color3.fromRGB(0, 0, 0)
-		if V then
-			ForceShiftLock()
-		else
-			EndForceShiftLock()
-		end
-	end)
-
-	local g = nil
-	local GameSettings = UserSettings():GetService("UserGameSettings")
-	local J = nil
-
-	function ForceShiftLock()
-		local i, k = pcall(function()
-			return GameSettings.RotationType
-		end)
-		_ = i
-		g = k
-		J = game:GetService("RunService").RenderStepped:Connect(function()
-			pcall(function()
-				GameSettings.RotationType = Enum.RotationType.CameraRelative
-			end)
-		end)
-	end
-
-	function EndForceShiftLock()
-		if J then
-			pcall(function()
-				GameSettings.RotationType = g or Enum.RotationType.MovementRelative
-			end)
-			J:Disconnect()
-		end
-	end
-end
-coroutine.wrap(YDYMLAX_fake_script)()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/shiftlock"))()
 end) 
 
 cmd.add({"unshiftlock", "unsl"}, {"unshiftlock (unsl)", "Disables shiftlock"}, function()
@@ -6634,7 +6576,6 @@ end
 		 Duration = 5;
 		 });
 		 
-	 -- creates a button that u can toggle if you're flying or not
 	 local ScreenGui = Instance.new("ScreenGui")
 	 local TextButton = Instance.new("TextButton")
 	 local UICorner = Instance.new("UICorner")
@@ -6799,7 +6740,7 @@ end
  end)
  
  cmd.add({"freecam", "fc", "fcam"}, {"freecam [speed] (fc, fcam)", "Enable free camera"}, function(speed)
-if not speed then speed = 5 end
+	if not speed then speed = 5 end
 	 if connections["freecam"] then lib.disconnect("freecam") camera.CameraSubject = character 	wrap(function() character.PrimaryPart.Anchored = false end) end
 	 local dir = {w = false, a = false, s = false, d = false}
 	 local cf = Instance.new("CFrameValue")
@@ -7608,7 +7549,22 @@ game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageReque
  Duration = 7;
  
  });
- setclipboard(target.DisplayName)
+ end)
+
+ cmd.add({"copyid", "id"}, {"copyid <player> (id)", "Copies the UserId of the target"}, function(...)
+ Username = (...)
+ target = getPlr(Username)
+
+ setclipboard(target.UserId)
+
+ wait();
+
+ Notify({
+ Description = "Copied the UserId of " .. target.Name .. "";
+ Title = "GrimEx Admin";
+ Duration = 7;
+ 
+ });
  end)
  
  cmd.add({"nodance", "untooldance"}, {"nodance", "Stop making tools dance"}, function()
@@ -8168,15 +8124,11 @@ print(text)
  end)
  
  cmd.add({"day"}, {"day", "Makes it day"}, function()
- game:GetService("Lighting").ClockTime = "12"
+ game:GetService("Lighting").ClockTime = 14
  end)
  
  cmd.add({"night"}, {"night", "Makes it night"}, function()
- game:GetService("Lighting").ClockTime = "24"
- end)
- 
- cmd.add({"night"}, {"night", "Makes it night"}, function()
- game:GetService("Lighting").ClockTime = "24"
+ game:GetService("Lighting").ClockTime = 0
  end)
  
  cmd.add({"antichatlogger", "acl"}, {"antichatlogger (acl)", "Anti chat logger"}, function()
@@ -8268,16 +8220,11 @@ print(text)
  
  UICorner_5.Parent = TextButton_2
  
- -- Scripts:
- 
- local function CPNQ_fake_script() -- TextButton.LocalScript 
-	 local script = Instance.new('LocalScript', TextButton)
- 
+ local function CPNQ_fake_script()
+local script = Instance.new('LocalScript', TextButton)
+
 	 script.Parent.MouseButton1Click:Connect(function()
-		 -- This basically makes roblox unable to log your chat messages sent in-game. Meaning if you get reported for saying something bad, you won't get banned!
-		 -- Store in autoexec folder
-		 -- Credits: AnthonyIsntHere and ArianBlaack
-	 
+
 	 --[[
 		 Change-logs:
 		 8/22/2022 - Fixed Chat gui glitching on some games such as Prison Life.
@@ -10988,6 +10935,18 @@ until glueloop == false
 			 
 			 });
 		 end)
+       
+		 cmd.add({"equiptools"}, {"equiptools", "Equips every tool in your inventory at once"}, function()
+ 		for i,v in pairs(Player:FindFirstChildOfClass("Backpack"):GetChildren()) do
+		if v:IsA("Tool") or v:IsA("HopperBin") then
+			v.Parent = Player.Character
+		end
+	end
+		end)
+
+		cmd.add({"unequiptools"}, {"unequiptools", "Unequips every tool you are currently holding at once"}, function()
+ 		Player.Character:FindFirstChildOfClass('Humanoid'):UnequipTools()
+		end)
 		 
 		 cmd.add({"dvoid", "dvoid"}, {"dvoid <player> (dvoid)", "Delay void"}, function(...)
 			 Target = (...)
@@ -12402,12 +12361,6 @@ webImport("ui/main")
  end)
  end)
  
- cmd.add({"funfact"}, {"funfact", "Says a random fun fact"}, function()
- local GetURL = game:HttpGet("https://uselessfacts.jsph.pl/random.json?language=en")
-	 local HTTP = game:GetService("HttpService"):JSONDecode(GetURL)
-	 game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(HTTP.text,"All")
- end)
- 
  cmd.add({"fireclickdetectors", "fcd"}, {"fireclickdetectors (fcd)", "Fires every click detector that's in workspace"}, function()
  local ccamount = 0
  
@@ -12417,9 +12370,7 @@ webImport("ui/main")
 			 fireclickdetector(v)
 		 end
 	 end
- 
-		 
- 
+ end
  
  wait();
  
@@ -13229,7 +13180,7 @@ end)
  --chat "/spy" to toggle!
  enabled = true
  --if true will check your messages too
- spyOnMyself = true
+ spyOnMyself = false
  --if true will chat the logs publicly (fun, risky)
  public = false
  --if true will use /me to stand out
@@ -14193,9 +14144,9 @@ end)
  });
  --This script reveals ALL hidden messages in the default chat
  --chat "/spy" to toggle!
- enabled = false
+ enabled = true
  --if true will check your messages too
- spyOnMyself = true
+ spyOnMyself = false
  --if true will chat the logs publicly (fun, risky)
  public = false
  --if true will use /me to stand out
@@ -14743,7 +14694,29 @@ end)
  end)
  
  cmd.add({"ownerid"}, {"ownerid", "Changes the client id to the owner's. Can give special things"}, function()
- wait();
+ 
+spawn(function()
+if game.CreatorType == Enum.CreatorType.User then
+    Player.UserId = game.CreatorId
+    Player.Name = game.CreatorName
+end
+end)
+spawn(function()
+if game.CreatorType == Enum.CreatorType.Group then
+    local groupId = game.CreatorId
+    local groupInfo = game:GetService("GroupService"):GetGroupInfoAsync(groupId)
+    local owner = groupInfo.Owner
+    Player.Name = owner.Name
+    Player.UserId = game:GetService("GroupService"):GetGroupInfoAsync(game.CreatorId).Owner.Id
+end
+end)
+spawn(function()
+game.StarterGui:SetCoreGuiEnabled(0, false)
+wait(1);
+game.StarterGui:SetCoreGuiEnabled(0, true)
+end)
+
+wait();
  
  Notify({
  Description = "Set local player id to the owner id";
@@ -14751,12 +14724,7 @@ end)
  Duration = 5;
  
  });
-	 if game.CreatorType == Enum.CreatorType.User then
-		 game.Players.LocalPlayer.UserId = game.CreatorId
-		 end
-		 if game.CreatorType == Enum.CreatorType.Group then
-		 game.Players.LocalPlayer.UserId = game:GetService("GroupService"):GetGroupInfoAsync(game.CreatorId).Owner.Id
-		 end
+ 
  end)
  
  cmd.add({"errorchat"}, {"errorchat", "Makes the chat error appear when roblox chat is slow"}, function()
@@ -15259,8 +15227,24 @@ end
 	 commandsList.CanvasSize = UDim2.new(0, 0, 0, commandsList.UIListLayout.AbsoluteContentSize.Y)
  end)
  
- -- all this does is print i dont know why i made it a loadstring
  loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/asd"))();
+ 
+spawn(function()
+local display = game.Players.LocalPlayer.DisplayName
+local name = game.Players.LocalPlayer.Name
+local hh
+if display == name then
+	hh = "@"..name..""
+else
+	hh = ""..display.." (@"..name..")"
+end
+
+Notify({
+ Description = "Welcome to GrimEx Admin
+ Title = "Hey "..hh.."";
+ Duration = 5;					 
+ });
+end)
  
  -- never used this lol
  function Destroy(guiObject)
@@ -15295,7 +15279,7 @@ end
  UICorner.CornerRadius = UDim.new(1, 0)
  UICorner.Parent = TextClickButton
  
- local function PZORYLB_fake_script() -- TextClickButton.LocalScript 
+ local function PZORYLB_fake_script()
 	 local script = Instance.new('LocalScript', TextClickButton)
 	 textclickbutton = script.Parent
 	 textclickbutton.Size = UDim2.new(0, 2,0, 33)
