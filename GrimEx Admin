@@ -1,4 +1,3 @@
- -- Waits until game is loaded
  local GetService = game.GetService
  if (not game.IsLoaded(game)) then
 	 local Loaded = game.Loaded
