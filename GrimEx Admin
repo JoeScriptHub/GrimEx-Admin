@@ -1,4 +1,5 @@
- local GetService = game.GetService
+
+-- Waits until game is loaded
  if (not game.IsLoaded(game)) then
 	 local Loaded = game.Loaded
 	 Loaded.Wait(Loaded);
