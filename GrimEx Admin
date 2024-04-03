@@ -56,7 +56,7 @@
  }
  
  -- [[ Version ]] -- 
- currentversion = 1.13
+ currentversion = beta
  
  --[[ VARIABLES ]]--
  PlaceId, JobId = game.PlaceId, game.JobId
@@ -742,7 +742,7 @@
  end)
  
  cmd.add({"plugins"}, {"plugins", "Check what kind of plugins you have, add plugins using a gui, delete a plugin."}, function()
-	 loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/GrimExAdminPlugin"))();
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/GrimExAdminPlugin"))();
  end)
  
  cmd.add({"prefix"}, {"prefix <prefix>", "Changes the admin prefix"}, function(...)
@@ -2911,7 +2911,7 @@ print(Time)
  end)
  
  cmd.add({"punch"}, {"punch", "punch tool that flings"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/punch",true))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/punch",true))()
  end)
  
  cmd.add({"vfly", "vehiclefly"}, {"vehiclefly (vfly)", "be able to fly vehicles"}, function(...)
@@ -5320,12 +5320,24 @@ until npcfollowloop == false
 			DisableShiftlock()
 		end
 	end
-cmd.add({"shiftlock", "sl"}, {"shiftlock (sl)", "Enable shiftlock"}, function()
-	EnableShiftlock()	
+cmd.add({"shiftlock", "sl"}, {"shiftlock (sl)", "Enables shiftlock"}, function()
+	if IsOnMobile then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/mobileshiftlock"))()
+	else
+		EnableShiftlock()
+	end
 end)
  
-cmd.add({"unshiftlock", "unsl"}, {"unshiftlock (unsl)", "Disables shiftlock if you're on mobile"}, function()
-	DisableShiftlock()
+cmd.add({"unshiftlock", "unsl"}, {"unshiftlock (unsl)", "Disables shiftlock"}, function()
+	if IsOnMobile then
+		for _,lol in ipairs(game.CoreGui:GetChildren()) do
+			if lol.Name == "shiftlockk" then
+				lol:Destroy()
+			end
+		end
+	else
+		DisableShiftlock()
+	end
 end)
 
 cmd.add({"ctrlshiftlock", "ctrlsl"}, {"ctrlshiftlock (ctrlsl)", "Enables shift lock if you press Control"}, function()
@@ -12205,7 +12217,7 @@ until glueloop == false
  end)
  
  cmd.add({"rc7"}, {"rc7", "RC7 Internal UI"}, function()
- loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/rc7"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/rc7"))()
  end)
  
  cmd.add({"scriptviewer", "viewscripts"}, {"scriptviewer (viewscripts)", "Can view scripts made by 0866"}, function()
