@@ -1,94 +1,88 @@
 local TweenService = game:GetService("TweenService");
-
 local RunService = game:GetService("RunService");
-local function TheNotificationFrame()	local TextService = game:GetService("TextService");
-local Notification = Instance.new("ScreenGui")	
-local Frame = Instance.new("Frame")	local Player = game:GetService("Players").LocalPlayer;
-local TitleText = Instance.new("TextLabel")	
-local TextText = Instance.new("TextLabel")	local NotifGui = Instance.new("ScreenGui");
-local Exit = Instance.new("TextButton")	NotifGui.Name = "AkaliNotif";
-local Timer = Instance.new("TextLabel")	NotifGui.Parent = RunService:IsStudio() and Player.PlayerGui or game:GetService("CoreGui");
+local TextService = game:GetService("TextService");
 
-
---Properties:	local Container = Instance.new("Frame");
-
-Container.Name = "Container";
-Notification.Name = "Notification"	Container.Position = UDim2.new(0, 20, 0.5, -20);
-Notification.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")	Container.Size = UDim2.new(0, 300, 0.5, 0);
-Notification.ZIndexBehavior = Enum.ZIndexBehavior.Sibling	Container.BackgroundTransparency = 1;
-
-Container.Parent = NotifGui;
-Frame.Parent = Notification	
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)	local function Image(ID, Button)
-Frame.BackgroundTransparency = 0.200		local NewImage = Instance.new(string.format("Image%s", Button and "Button" or "Label"));
-Frame.BorderSizePixel = 0		NewImage.Image = ID;
-Frame.Position = UDim2.new(0.773999989, 20, 0.931999981, -20)		NewImage.BackgroundTransparency = 1;
-Frame.Size = UDim2.new(0, 278, 0, 78)		return NewImage;
-
+local Player = game:GetService("Players").LocalPlayer;
+local search = RunService:IsStudio() and Player.PlayerGui or game:GetService("CoreGui");
+if search:FindFirstChild("AkaliNotif") and _G.Notifss then
+	return _G.Notifss
+else
+	NotifGui= Instance.new("ScreenGui");
+	NotifGui.Name = "AkaliNotif";
+	NotifGui.Parent = search
+	Container = Instance.new("Frame");
+	Container.Name = "Container";
+	Container.Position = UDim2.new(0, 20, 0.5, -20);
+	Container.Size = UDim2.new(0, 300, 0.5, 0);
+	Container.BackgroundTransparency = 1;
+	Container.Parent = NotifGui;
 end
-TitleText.Name = "TitleText"	
-TitleText.Parent = Frame	local function Round2px()
-TitleText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)		local NewImage = Image("http://www.roblox.com/asset/?id=5761488251");
-TitleText.BackgroundTransparency = 1.000		NewImage.ScaleType = Enum.ScaleType.Slice;
-TitleText.Position = UDim2.new(0.0215827338, 0, 0, 0)		NewImage.SliceCenter = Rect.new(2, 2, 298, 298);
-TitleText.Size = UDim2.new(0, 173, 0, 28)		NewImage.ImageColor3 = Color3.fromRGB(0, 0, 0);
-TitleText.Font = Enum.Font.SourceSansBold		NewImage.ImageTransparency = 0.2
-TitleText.Text = TitleAdonis		return NewImage;
-TitleText.TextColor3 = Color3.fromRGB(255, 255, 255)	end
-TitleText.TextSize = 26.000	
-TitleText.TextXAlignment = Enum.TextXAlignment.Left	local function Shadow2px()
 
+
+local function Image(ID, Button)
+	local NewImage = Instance.new(string.format("Image%s", Button and "Button" or "Label"));
+	NewImage.Image = ID;
+	NewImage.BackgroundTransparency = 1;
+	return NewImage;
+end
+
+local function Round2px()
+	local NewImage = Image("http://www.roblox.com/asset/?id=5761488251");
+	NewImage.ScaleType = Enum.ScaleType.Slice;
+	NewImage.SliceCenter = Rect.new(2, 2, 298, 298);
+	NewImage.ImageColor3 = Color3.fromRGB(12, 4, 20);
+	NewImage.ImageTransparency = 0.14
+	return NewImage;
+end
+
+local function Shadow2px()
 	local NewImage = Image("http://www.roblox.com/asset/?id=5761498316");
-TextText.Name = "TextText"		NewImage.ScaleType = Enum.ScaleType.Slice;
-TextText.Parent = Frame		NewImage.SliceCenter = Rect.new(17, 17, 283, 283);
-TextText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)		NewImage.Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(30, 30);
-TextText.BackgroundTransparency = 1.000		NewImage.Position = -UDim2.fromOffset(15, 15);
-TextText.Position = UDim2.new(0.0215827338, 0, 0.366666734, 0)		NewImage.ImageColor3 = Color3.fromRGB(26, 26, 26);
-TextText.Size = UDim2.new(0, 268, 0, 43)		return NewImage;
-TextText.Font = Enum.Font.SourceSansLight	end
-TextText.Text = TextTextAdonis	
-TextText.TextColor3 = Color3.fromRGB(255, 255, 255)	local Padding = 10;
-TextText.TextScaled = true	local DescriptionPadding = 10;
-TextText.TextSize = 14.000	local InstructionObjects = {};
-TextText.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)	local TweenTime = 1;
-TextText.TextWrapped = true	local TweenStyle = Enum.EasingStyle.Sine;
-TextText.TextXAlignment = Enum.TextXAlignment.Left	local TweenDirection = Enum.EasingDirection.Out;
-TextText.TextYAlignment = Enum.TextYAlignment.Top	
+	NewImage.ScaleType = Enum.ScaleType.Slice;
+	NewImage.SliceCenter = Rect.new(17, 17, 283, 283);
+	NewImage.Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(30, 30);
+	NewImage.Position = -UDim2.fromOffset(15, 15);
+	NewImage.ImageColor3 = Color3.fromRGB(26, 26, 26);
+	return NewImage;
+end
+
+local Padding = 10;
+local DescriptionPadding = 10;
+local InstructionObjects = {};
+local TweenTime = 1;
+local TweenStyle = Enum.EasingStyle.Sine;
+local TweenDirection = Enum.EasingDirection.Out;
 
 local LastTick = tick();
-Exit.Name = "Exit"	
-Exit.Parent = Frame	local function CalculateBounds(TableOfObjects)
-Exit.BackgroundColor3 = Color3.fromRGB(30, 30, 30)		local TableOfObjects = typeof(TableOfObjects) == "table" and TableOfObjects or {};
-Exit.BorderSizePixel = 0		local X, Y = 0, 0;
-Exit.Position = UDim2.new(0.895683467, 0, 0.0333333351, 0)		for _, Object in next, TableOfObjects do
-Exit.Size = UDim2.new(0, 25, 0, 22)			X += Object.AbsoluteSize.X;
-Exit.Font = Enum.Font.SourceSansBold			Y += Object.AbsoluteSize.Y;
-Exit.Text = "X"		end
-Exit.TextColor3 = Color3.fromRGB(255, 255, 255)		return {X = X, Y = Y, x = X, y = Y};
-Exit.TextScaled = true	end
-Exit.TextSize = 14.000	
-Exit.TextWrapped = true	local CachedObjects = {};
 
+local function CalculateBounds(TableOfObjects)
+	local TableOfObjects = typeof(TableOfObjects) == "table" and TableOfObjects or {};
+	local X, Y = 0, 0;
+	for _, Object in next, TableOfObjects do
+		X += Object.AbsoluteSize.X;
+		Y += Object.AbsoluteSize.Y;
+	end
+	return {X = X, Y = Y, x = X, y = Y};
+end
 
-Timer.Name = "Timer"	local function Update()
-Timer.Parent = Frame		local DeltaTime = tick() - LastTick;
-Timer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)		local PreviousObjects = {};
-Timer.BackgroundTransparency = 1.000		for CurObj, Object in next, InstructionObjects do
-Timer.Position = UDim2.new(0.809352517, 0, 0.0666666701, 0)			local Label, Delta, Done = Object[1], Object[2], Object[3];
-Timer.Size = UDim2.new(0, 24, 0, 18)			if (not Done) then
-Timer.Font = Enum.Font.SourceSansBold				if (Delta < TweenTime) then
-Timer.Text = TimerAdonis					Object[2] = math.clamp(Delta + DeltaTime, 0, 1);
-Timer.TextColor3 = Color3.fromRGB(255, 255, 255)					Delta = Object[2];
-Timer.TextSize = 20.000				else
+local CachedObjects = {};
 
+local function Update()
+	local DeltaTime = tick() - LastTick;
+	local PreviousObjects = {};
+	for CurObj, Object in next, InstructionObjects do
+		local Label, Delta, Done = Object[1], Object[2], Object[3];
+		if (not Done) then
+			if (Delta < TweenTime) then
+				Object[2] = math.clamp(Delta + DeltaTime, 0, 1);
+				Delta = Object[2];
+			else
 				Object[3] = true;
-local function HEFRDQL_fake_script() -- Notification.LocalScript 				end
-	local script = Instance.new('LocalScript', Notification)			end
-
+			end
+		end
 		local NewValue = TweenService:GetValue(Delta, TweenStyle, TweenDirection);
-script.Parent.Frame:TweenPosition(UDim2.new(0.774, 20,0.887, -20), "Out", "Quint",1,true)			local CurrentPos = Label.Position;
-wait(Timer2)			local PreviousBounds = CalculateBounds(PreviousObjects);
-	    	script.Parent.Frame:TweenPosition(UDim2.new(0.774, 20,1.100, -20), "Out", "Quint",1,true)			local TargetPos = UDim2.new(0, 0, 0, PreviousBounds.Y + (Padding * #PreviousObjects));
+		local CurrentPos = Label.Position;
+		local PreviousBounds = CalculateBounds(PreviousObjects);
+		local TargetPos = UDim2.new(0, 0, 0, PreviousBounds.Y + (Padding * #PreviousObjects));
 		Label.Position = CurrentPos:Lerp(TargetPos, NewValue);
 		table.insert(PreviousObjects, Label);
 	end
@@ -120,21 +114,11 @@ local function Label(Text, Font, Size, Button)
 	Label.RichText = true;
 	Label.TextColor3 = Color3.fromRGB(255, 255, 255);
 	return Label;
-end	end
-coroutine.wrap(HEFRDQL_fake_script)()	
+end
 
 local function TitleLabel(Text)
-Exit.MouseButton1Click:Connect(function()		return Label(Text, TitleSettings.Font, TitleSettings.Size);
-    	Frame:TweenPosition(UDim2.new(0.774, 20,1.100, -20), "Out", "Quint",1,true)	
-wait(0.2)	
-		Frame:Destroy()	
-end)	
-
-for i=1,TimerAdonis do	
-wait(1)	
-TimerAdonis = TimerAdonis - 1	
-    Timer.Text = TimerAdonis	
-end	end
+	return Label(Text, TitleSettings.Font, TitleSettings.Size);
+end
 
 local function DescriptionLabel(Text)
 	return Label(Text, DescriptionSettings.Font, DescriptionSettings.Size);
@@ -193,17 +177,15 @@ local function FadeOutAfter(Object, Seconds)
 	wait(0.25);
 	table.remove(InstructionObjects, FindIndexByDependency(InstructionObjects, Object));
 	ResetObjects();
-	Object.Visible = false
-end	end
-
-
-TheNotificationFrame()	return {
+	Object:Destroy();
+end
+_G.Notifss = {
 	Notify = function(Properties)
 		local Properties = typeof(Properties) == "table" and Properties or {};
 		local Title = Properties.Title;
 		local Description = Properties.Description;
 		local Duration = Properties.Duration or 5;
-		if (Title) or (Description) then -- Check that user has provided title and/or description
+		if (Title) or (Description) then
 			local Y = Title and 26 or 0;
 			if (Description) then
 				local TextSize = TextService:GetTextSize(Description, DescriptionSettings.Size, DescriptionSettings.Font, Vector2.new(0, 0));
@@ -234,5 +216,6 @@ TheNotificationFrame()	return {
 			table.insert(InstructionObjects, {NewLabel, 0, false});
 			coroutine.wrap(FadeOutAfter)(NewLabel, Duration);
 		end
-	end,
+	end,	
 }
+return _G.Notifss 
