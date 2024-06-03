@@ -33,7 +33,7 @@ end)
 
 
 -- Notification library
-local Notification = https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/Notification"))();
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/Notification"))();
 local Notify = Notification.Notify;
 
 -- Custom file functions checker checker
@@ -16024,7 +16024,7 @@ print([[
 ]])
 
 
--- @grimexploits
+-- rename by @grimexploits
 
 -- continueation by @ltseverydayyou | loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))();
 
