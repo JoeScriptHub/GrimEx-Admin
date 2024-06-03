@@ -26,14 +26,14 @@ task.spawn(function() --automatically load GrimEx Admin when teleported
 	local teleportConnection = game.Players.LocalPlayer.OnTeleport:Connect(function(State)
 		if (not teleportedServers) then
 			local queueonteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
-			queueonteleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/GA%20testing"))();]])
+			queueonteleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/GrimEx%20Admin"))();]])
 		end
 	end)
 end)
 
 
 -- Notification library
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/Notification"))();
+local Notification = https://raw.githubusercontent.com/JoeScriptHub/GrimEx-Admin/main/Notification"))();
 local Notify = Notification.Notify;
 
 -- Custom file functions checker checker
@@ -5693,7 +5693,7 @@ function ShiftLock()
 end
 cmd.add({"shiftlock", "sl"}, {"shiftlock (sl)", "Enables shiftlock"}, function()
 	if IsOnMobile then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/main/shiftlock"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/JoeScriptHub/FE/main/shiftlock"))()
 	else
 		EnableShiftlock()
 	end
@@ -16026,6 +16026,6 @@ print([[
 
 -- @grimexploits
 
--- continueation by @ltseverydayyou | loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source"))();
+-- continueation by @ltseverydayyou | loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))();
 
 -- original by @qipu | loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))();
